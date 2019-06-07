@@ -1,0 +1,23 @@
+{
+  "name": "trello-migrate-to-github",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p .",
+    "watch": "tsc -w -p .",
+    "lint": "tslint --fix --format stylish --project tsconfig.json --config tslint.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/got": "^9.4.4",
+    "@types/node": "^12.0.7",
+    "tslint": "^5.17.0",
+    "typescript": "^3.5.1"
+  },
+  "dependencies": {
+    "got": "^9.6.0"
+  }
+}
