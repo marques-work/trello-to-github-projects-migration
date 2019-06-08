@@ -22,6 +22,11 @@ console.log("Statistics:\n", {
   lists: lists.length,
   labels: tree.labels.length,
   cards: tree.cards.length,
+  cardsWithAttachments: cards.hasAttachments.size,
+  attachments: tree.cards.reduce((sum: number, c: any) => (sum + c.attachments.length), 0),
+  attachmentsThatAreUploads: tree.cards.reduce((sum: number, c: any) => (sum + (c.attachments.reduce((res: number, a: any) => (res + (a.isUpload << 0)), 0))), 0),
+  attachmentsThatAreCards: tree.cards.reduce((sum: number, c: any) => (sum + (c.attachments.reduce((res: number, a: any) => (res + ((!a.isUpload && a.url.startsWith("https://trello.com/c/")) << 0)), 0))), 0),
+  attachmentsThatAreOther: tree.cards.reduce((sum: number, c: any) => (sum + (c.attachments.reduce((res: number, a: any) => (res + ((!a.isUpload && !a.url.startsWith("https://trello.com/c/")) as any << 0)), 0))), 0),
   checklists: tree.checklists.length,
   members: tree.members.length,
   comments: tree.actions.filter((a: Typed) => a.type === "commentCard").length
@@ -29,11 +34,18 @@ console.log("Statistics:\n", {
 
 sequence(
   announce(ensureListsToColumns(PROJ, lists), "Lists")
+  // create labels
+  // create issues
+  // apply assignees
+  // apply checklists
+  // upload (?) and apply attachments
+  // create comments
+  // create cards
+  // move cards
 );
 
 // body(github.labels.list("gocd", "gocd"));
 // github.columns.destroyAll(PROJ);
-
 
 function sequence(...promises: Array<Promise<any>>): Promise<any> {
   return (async () => {

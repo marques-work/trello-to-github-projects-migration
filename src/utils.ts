@@ -17,7 +17,7 @@ export function writeDataToFile(filename: string, data: any) {
 export function isRegularFile(path: string): boolean {
   try {
     return fs.lstatSync(path).isFile();
-  } catch (e) {;
+  } catch (e) {
     return false; // does not exist
   }
 }
