@@ -28,3 +28,20 @@ export function githubMemberByTrelloName(username: string): any | undefined {
     return githubMemberByLogin(TRELLO_USER_MAP.get(username)!);
   }
 }
+
+const COLORS = {
+  black:  "708090",
+  blue:   "4169E1",
+  green:  "32CD32",
+  lime:   "00FA9A",
+  orange: "FF8C00",
+  pink:   "FF69B4",
+  purple: "EE82EE",
+  red:    "DC143C",
+  sky:    "AFEEEE",
+  yellow: "FFD700",
+};
+
+export function mapLabelColor(color: keyof (typeof COLORS)): string {
+  return COLORS[color] || "696969"; // dark grey
+}

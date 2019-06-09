@@ -1,4 +1,5 @@
 import {githubMemberByTrelloName} from "./preloaded_data";
+import {sorted} from "./types";
 
 const cardUrlPrefix = "https://trello.com/c/", prefixLen = cardUrlPrefix.length;
 
@@ -32,6 +33,60 @@ export class CardQuery {
       }
     }
   }
+
+  asIssueSpec(id: string, members: MemberQuery, checklists: ChecklistQuery): IssueSpec {
+    const card = this.byId.get(id)!;
+    return {
+      title: card.name,
+      body: applyChecklists(card.desc || "", card.idChecklists, checklists),
+      labels: card.labels.map((l: any) => l.name),
+      assignees: compact(card.idMembers.map((mId: string) => members.githubLoginFor(mId)))
+    };
+  }
+}
+
+interface IssueSpec {
+  title: string;
+  body: string;
+  labels: string[];
+  assignees: string[];
+}
+
+function applyChecklists(desc: string, ids: string[], query: ChecklistQuery): string {
+  if (!ids.length) { return desc; }
+
+  // sort by position in-place
+  ids.sort((a: string, b: string) => query.byId.get(a).pos - query.byId.get(b).pos);
+  return (desc.trim().length ? desc + "\n\n" : desc.trim()) +
+    ids.map((id: string) => query.asMarkdown(id)).join("\n");
+}
+
+function compact(arr: any[]): any[] {
+  return arr.reduce((m, el) => {
+    if (el) {
+      m.push(el);
+    }
+    return m;
+  }, []);
+}
+
+export class ChecklistQuery {
+  byId = new Map<string, any>();
+
+  constructor(checklists: any[]) {
+    for (const c of checklists) {
+      this.byId.set(c.id, c);
+    }
+  }
+
+  asMarkdown(id: string) {
+    if (this.byId.has(id)) {
+      const c: any = this.byId.get(id);
+      return `## ${c.name}\n\n${sorted(c.checkItems).map(
+        (i: any) => `- [${"complete" === i.state ? "x" : " "}] ${i.name}`
+      ).join("\n")}`;
+    }
+  }
 }
 
 export class MemberQuery {
@@ -52,6 +107,12 @@ export class MemberQuery {
   githubIdFor(id: string): number | undefined {
     if (this.hasGithubById(id)) {
       return this.byId.get(id).id;
+    }
+  }
+
+  githubLoginFor(id: string): string | undefined {
+    if (this.hasGithubById(id)) {
+      return this.byId.get(id).login;
     }
   }
 

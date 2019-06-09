@@ -18,6 +18,8 @@
     "typescript": "^3.5.1"
   },
   "dependencies": {
-    "got": "^9.6.0"
+    "@types/minimist": "^1.2.0",
+    "got": "^9.6.0",
+    "minimist": "^1.2.0"
   }
 }

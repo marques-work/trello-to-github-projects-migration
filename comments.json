@@ -1,0 +1,6453 @@
+[
+  {
+    "id": "5cf5a7e7862c361810293b46",
+    "idMemberCreator": "5bff2aae33cbb1135ffd69ec",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "SYfYXB9t",
+        "idShort": 116,
+        "name": "PaC Spike: Flow 1 - Find material in repo",
+        "id": "5ceedf1bc6515254e2db2b28"
+      },
+      "text": "@arvind_sv in regards to the second point, I agree. The diagram does a poor job of showing that the circles represent background actions so the user would be on the material screen during this time and therefore progress should be shown\n"
+    },
+    "type": "commentCard",
+    "date": "2019-06-03T23:06:15.084Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5bff2aae33cbb1135ffd69ec",
+      "avatarHash": "aa30db62948d2699f2609e8950f17963",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/aa30db62948d2699f2609e8950f17963",
+      "fullName": "kiera",
+      "idMemberReferrer": null,
+      "initials": "K",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "kiera_radman"
+    }
+  },
+  {
+    "id": "5cf576b7473d3e0bf4e3d7f8",
+    "idMemberCreator": "5c87d27a19428f53ba5e8212",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "SYfYXB9t",
+        "idShort": 116,
+        "name": "PaC Spike: Flow 1 - Find material in repo",
+        "id": "5ceedf1bc6515254e2db2b28"
+      },
+      "text": "Here are my thoughts from Slack: https://twstudios.slack.com/archives/CHCEGDBSA/p1559071056009300?thread_ts=1558719804.003000&cid=CHCEGDBSA\n\n- Prefer to not have: “Includes pipeline config”. A magical user experience is that it is found automatically. How about:\n 1. They enter a material URL.\n 2. We try to clone it and find out and show a message: “We found a pipeline config in your repo. Do you want us to use that ... ?”\n 3. If not, and it takes more than 5 seconds or is too big a repo for us to shallow clone from, then we show a message: “We couldn’t clone the repo, do you have a pipeline config that you’d like us to use?”\n\n- When in the “Add config repo (inferring details) parse config” part, it would be good to show progress to a user.\n\n/cc @steven_st "
+    },
+    "type": "commentCard",
+    "date": "2019-06-03T19:36:23.088Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c87d27a19428f53ba5e8212",
+      "avatarHash": "a5a6c3838faedbfa8d33524dc76c6103",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/a5a6c3838faedbfa8d33524dc76c6103",
+      "fullName": "Aravind SV",
+      "idMemberReferrer": null,
+      "initials": "AS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "arvind_sv"
+    }
+  },
+  {
+    "id": "5ce45a116afddf456b821d61",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Future/Other Product Work/Ideas",
+        "id": "5ca52ff089ca8d6fe7bafc13"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "sDUPg5pz",
+        "idShort": 104,
+        "name": "Metrics for Trial XP in GoCD",
+        "id": "5ce32359d3cfca28530f449f"
+      },
+      "text": "@ibnc2 @marquesfarques Let's chat about this"
+    },
+    "type": "commentCard",
+    "date": "2019-05-21T20:05:37.857Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cf7f044240952375a882043",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Future/Other Product Work/Ideas",
+        "id": "5ca52ff089ca8d6fe7bafc13"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "NS9BRNHZ",
+        "idShort": 50,
+        "name": "Evaluate how to aid in a users comprehension of a pipeline on the 'dashboard' page",
+        "id": "5cb4cb11b551e77bf9efa89e"
+      },
+      "text": "I have nothing to add, let's archive it\n\n-- \nSteven Streisguth\nSenior Experience Designer\nEmail sstreisg@thoughtworks.com\nTelephone +1 267 997 0967 <+1%20267%20997%200967>\n[image: ThoughtWorks]\n<http://www.thoughtworks.com/?utm_campaign=steven-streisguth-signature&utm_medium=email&utm_source=thoughtworks-email-signature-generator>"
+    },
+    "type": "commentCard",
+    "date": "2019-06-05T16:39:31.000Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5cf7eb8d0fd9cf13ed7037ed",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Future/Other Product Work/Ideas",
+        "id": "5ca52ff089ca8d6fe7bafc13"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "NS9BRNHZ",
+        "idShort": 50,
+        "name": "Evaluate how to aid in a users comprehension of a pipeline on the 'dashboard' page",
+        "id": "5cb4cb11b551e77bf9efa89e"
+      },
+      "text": "@steven_st If it's alright, I'm going to archive this item, unless you have something to add to it."
+    },
+    "type": "commentCard",
+    "date": "2019-06-05T16:19:25.706Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cf721afa7665016fca29d91",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Future/Other Product Work/Ideas",
+        "id": "5ca52ff089ca8d6fe7bafc13"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "NS9BRNHZ",
+        "idShort": 50,
+        "name": "Evaluate how to aid in a users comprehension of a pipeline on the 'dashboard' page",
+        "id": "5cb4cb11b551e77bf9efa89e"
+      },
+      "text": "@loudapena I don't recall, I think it was a parking lot item."
+    },
+    "type": "commentCard",
+    "date": "2019-06-05T01:58:07.604Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5cf6ef36e288c6499590cff7",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Future/Other Product Work/Ideas",
+        "id": "5ca52ff089ca8d6fe7bafc13"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "NS9BRNHZ",
+        "idShort": 50,
+        "name": "Evaluate how to aid in a users comprehension of a pipeline on the 'dashboard' page",
+        "id": "5cb4cb11b551e77bf9efa89e"
+      },
+      "text": "@steven_st can you remind me what this is for?"
+    },
+    "type": "commentCard",
+    "date": "2019-06-04T22:22:46.665Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cf81dc53460fe3383a9ec4f",
+    "idMemberCreator": "5bff2aae33cbb1135ffd69ec",
+    "data": {
+      "text": "duplicate to #70",
+      "card": {
+        "id": "5cb6316c82efa1485ef1a537",
+        "name": "Iteration N: Support Plugin Tasks (when considering replacing flow in production)",
+        "idShort": 51,
+        "shortLink": "ZayEzohL"
+      },
+      "board": {
+        "id": "5ca3d99a0378a65090e676ca",
+        "name": "Test Drive",
+        "shortLink": "iq20ZNIV"
+      },
+      "list": {
+        "id": "5ca52ff089ca8d6fe7bafc13",
+        "name": "Backlog/Future Work/Ideas"
+      }
+    },
+    "type": "commentCard",
+    "date": "2019-06-05T19:53:41.755Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5bff2aae33cbb1135ffd69ec",
+      "avatarHash": "aa30db62948d2699f2609e8950f17963",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/aa30db62948d2699f2609e8950f17963",
+      "fullName": "kiera",
+      "idMemberReferrer": null,
+      "initials": "K",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "kiera_radman"
+    }
+  },
+  {
+    "id": "5cf8240a49e895447e7e004a",
+    "idMemberCreator": "5bff2aae33cbb1135ffd69ec",
+    "data": {
+      "text": "@steven_st @loudapena will card #114 https://trello.com/c/jILuibSx/114-make-page-styles-consistent-with-existing-styles handle this?",
+      "card": {
+        "id": "5cc775ef2c578d677fea7959",
+        "name": "Button colors",
+        "idShort": 80,
+        "shortLink": "TtgSZYiB"
+      },
+      "board": {
+        "id": "5ca3d99a0378a65090e676ca",
+        "name": "Test Drive",
+        "shortLink": "iq20ZNIV"
+      },
+      "list": {
+        "id": "5ca52ff089ca8d6fe7bafc13",
+        "name": "Backlog/Future Work/Ideas"
+      },
+      "textData": {
+        "emoji": {}
+      },
+      "dateLastEdited": "2019-06-05T20:21:21.360Z"
+    },
+    "type": "commentCard",
+    "date": "2019-06-05T20:20:26.815Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5bff2aae33cbb1135ffd69ec",
+      "avatarHash": "aa30db62948d2699f2609e8950f17963",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/aa30db62948d2699f2609e8950f17963",
+      "fullName": "kiera",
+      "idMemberReferrer": null,
+      "initials": "K",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "kiera_radman"
+    }
+  },
+  {
+    "id": "5cf81f012961d029609d655a",
+    "idMemberCreator": "5bff2aae33cbb1135ffd69ec",
+    "data": {
+      "text": "duplicate to #119",
+      "card": {
+        "id": "5ce321ec76fac3295fdf9228",
+        "name": "Spike out wireframes for user testing",
+        "idShort": 102,
+        "shortLink": "zbrGcNfU"
+      },
+      "board": {
+        "id": "5ca3d99a0378a65090e676ca",
+        "name": "Test Drive",
+        "shortLink": "iq20ZNIV"
+      },
+      "list": {
+        "id": "5ca52ff089ca8d6fe7bafc13",
+        "name": "Backlog/Future Work/Ideas"
+      }
+    },
+    "type": "commentCard",
+    "date": "2019-06-05T19:58:57.754Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5bff2aae33cbb1135ffd69ec",
+      "avatarHash": "aa30db62948d2699f2609e8950f17963",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/aa30db62948d2699f2609e8950f17963",
+      "fullName": "kiera",
+      "idMemberReferrer": null,
+      "initials": "K",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "kiera_radman"
+    }
+  },
+  {
+    "id": "5cf81ee31ba8d02a4b5df306",
+    "idMemberCreator": "5bff2aae33cbb1135ffd69ec",
+    "data": {
+      "text": "duplicate to #119",
+      "card": {
+        "id": "5ce321f2febeef6a944e3287",
+        "name": "User testing prototypes",
+        "idShort": 103,
+        "shortLink": "y0qMFcxq"
+      },
+      "board": {
+        "id": "5ca3d99a0378a65090e676ca",
+        "name": "Test Drive",
+        "shortLink": "iq20ZNIV"
+      },
+      "list": {
+        "id": "5ca52ff089ca8d6fe7bafc13",
+        "name": "Backlog/Future Work/Ideas"
+      }
+    },
+    "type": "commentCard",
+    "date": "2019-06-05T19:58:27.728Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5bff2aae33cbb1135ffd69ec",
+      "avatarHash": "aa30db62948d2699f2609e8950f17963",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/aa30db62948d2699f2609e8950f17963",
+      "fullName": "kiera",
+      "idMemberReferrer": null,
+      "initials": "K",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "kiera_radman"
+    }
+  },
+  {
+    "id": "5ccc733da59b6a4b52f7fd26",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "L5wwab9S",
+        "idShort": 52,
+        "name": "Implement fetchArtifact command in task terminal",
+        "id": "5cb632023d9be359d86f8cbc"
+      },
+      "text": "Would need an arg.ioptions parser to map arguments and flags to build a FetchTask configuration.\n\nShould also add a `Usage` message for help"
+    },
+    "type": "commentCard",
+    "date": "2019-05-03T16:58:37.005Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5ce5ab3ad2b268056df5405a",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "jq7onXVr",
+        "idShort": 83,
+        "name": "Support Task config: `working directory` - How?",
+        "id": "5ccb809e11c1202c93c5dac4"
+      },
+      "text": "or rather, I'll archive it."
+    },
+    "type": "commentCard",
+    "date": "2019-05-22T20:04:10.571Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5ce5ab20e9520a0f8202c4c9",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "jq7onXVr",
+        "idShort": 83,
+        "name": "Support Task config: `working directory` - How?",
+        "id": "5ccb809e11c1202c93c5dac4"
+      },
+      "text": "@kiera_radman yes, I believe it is. Let's archive that one."
+    },
+    "type": "commentCard",
+    "date": "2019-05-22T20:03:44.881Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5ce5aadd1ab84e216462d02e",
+    "idMemberCreator": "5bff2aae33cbb1135ffd69ec",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "jq7onXVr",
+        "idShort": 83,
+        "name": "Support Task config: `working directory` - How?",
+        "id": "5ccb809e11c1202c93c5dac4"
+      },
+      "text": "@marquesfarques is the same as https://trello.com/c/MCIvXtbR/77-add-pipeline-working-directory?"
+    },
+    "type": "commentCard",
+    "date": "2019-05-22T20:02:37.651Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5bff2aae33cbb1135ffd69ec",
+      "avatarHash": "aa30db62948d2699f2609e8950f17963",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/aa30db62948d2699f2609e8950f17963",
+      "fullName": "kiera",
+      "idMemberReferrer": null,
+      "initials": "K",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "kiera_radman"
+    }
+  },
+  {
+    "id": "5cf7fb6c8e078b2383b82d38",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Loading Page",
+        "id": "5ca3da4ed2ea2f3e8a13cc2d"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "mTtVKV4B",
+        "idShort": 26,
+        "name": "Iteration 3: (Idea) possible illustration that helps explain relationship between server/agent",
+        "id": "5ca52136d3c58f4facd81ac4"
+      },
+      "text": "/agree @loudapena @kiera_radman"
+    },
+    "type": "commentCard",
+    "date": "2019-06-05T17:27:08.841Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cf7f43475c9a67a1cff8e43",
+    "idMemberCreator": "5bff2aae33cbb1135ffd69ec",
+    "data": {
+      "list": {
+        "name": "Loading Page",
+        "id": "5ca3da4ed2ea2f3e8a13cc2d"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "mTtVKV4B",
+        "idShort": 26,
+        "name": "Iteration 3: (Idea) possible illustration that helps explain relationship between server/agent",
+        "id": "5ca52136d3c58f4facd81ac4"
+      },
+      "text": "@loudapena I would say that it's not all that important. I'd be ok to archive this cc/ @marquesfarques @ibnc2 "
+    },
+    "type": "commentCard",
+    "date": "2019-06-05T16:56:20.040Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5bff2aae33cbb1135ffd69ec",
+      "avatarHash": "aa30db62948d2699f2609e8950f17963",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/aa30db62948d2699f2609e8950f17963",
+      "fullName": "kiera",
+      "idMemberReferrer": null,
+      "initials": "K",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "kiera_radman"
+    }
+  },
+  {
+    "id": "5cf6ee74e97df3149e64cd74",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Loading Page",
+        "id": "5ca3da4ed2ea2f3e8a13cc2d"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "mTtVKV4B",
+        "idShort": 26,
+        "name": "Iteration 3: (Idea) possible illustration that helps explain relationship between server/agent",
+        "id": "5ca52136d3c58f4facd81ac4"
+      },
+      "text": "@marquesfarques @kiera_radman @ibnc2 Do we still think this is important to highlight in the test drive experience?"
+    },
+    "type": "commentCard",
+    "date": "2019-06-04T22:19:32.124Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5ce45b2064faa76e6944ddef",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Loading Page",
+        "id": "5ca3da4ed2ea2f3e8a13cc2d"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "0OYyBNiz",
+        "idShort": 27,
+        "name": "Iteration 2: (idea) do we want to use the loading page space for non-trial users - would this make sense?",
+        "id": "5ca521589c6c57035b887ac5"
+      },
+      "text": "Yes we do :)"
+    },
+    "type": "commentCard",
+    "date": "2019-05-21T20:10:08.661Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5ca64658aef75877f457ed9f",
+    "idMemberCreator": "5bff2aae33cbb1135ffd69ec",
+    "data": {
+      "list": {
+        "name": "Download/Install",
+        "id": "5ca3d9d499d72a83f8466496"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "nHCjBAyr",
+        "idShort": 21,
+        "name": "change download name?",
+        "id": "5ca51d81d1e1023a02acc9c5"
+      },
+      "text": "@loudapena I'm going to archive this. I think the benefits of the current naming scheme outweigh the potential gain"
+    },
+    "type": "commentCard",
+    "date": "2019-04-04T18:00:56.594Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5bff2aae33cbb1135ffd69ec",
+      "avatarHash": "aa30db62948d2699f2609e8950f17963",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/aa30db62948d2699f2609e8950f17963",
+      "fullName": "kiera",
+      "idMemberReferrer": null,
+      "initials": "K",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "kiera_radman"
+    }
+  },
+  {
+    "id": "5cd48a407a60d026f9564ca5",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Dashboard Page",
+        "id": "5ca3da52edd4a463a6f303d3"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "SWy0750d",
+        "idShort": 87,
+        "name": "Explore adding a very specific instruction about adding pipeline - LOOK AT THIS DURING USER TESTING NEXT WEEK",
+        "id": "5ccce2c45a5e811b687731c4"
+      },
+      "text": "@loudapena Do we still need this card now that we have one for testing this specific interaction?"
+    },
+    "type": "commentCard",
+    "date": "2019-05-09T20:14:56.996Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5cd32376a5074a30683ee781",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Dashboard Page",
+        "id": "5ca3da52edd4a463a6f303d3"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "SWy0750d",
+        "idShort": 87,
+        "name": "Explore adding a very specific instruction about adding pipeline - LOOK AT THIS DURING USER TESTING NEXT WEEK",
+        "id": "5ccce2c45a5e811b687731c4"
+      },
+      "text": "@kiera_radman Yes, I wanted to ensure that we have a more obvious call to action on the add pipeline button. @steven has some thoughts about this design-wise. Simply having the button may not be enough in this trial, we did not see any interviewee read the instructions past Step 2."
+    },
+    "type": "commentCard",
+    "date": "2019-05-08T18:44:06.783Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cd313f3f8243642c376c5bc",
+    "idMemberCreator": "5bff2aae33cbb1135ffd69ec",
+    "data": {
+      "list": {
+        "name": "Dashboard Page",
+        "id": "5ca3da52edd4a463a6f303d3"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "SWy0750d",
+        "idShort": 87,
+        "name": "Explore adding a very specific instruction about adding pipeline - LOOK AT THIS DURING USER TESTING NEXT WEEK",
+        "id": "5ccce2c45a5e811b687731c4"
+      },
+      "text": "@loudapena can you clarify what this card is?\n"
+    },
+    "type": "commentCard",
+    "date": "2019-05-08T17:37:55.759Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5bff2aae33cbb1135ffd69ec",
+      "avatarHash": "aa30db62948d2699f2609e8950f17963",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/aa30db62948d2699f2609e8950f17963",
+      "fullName": "kiera",
+      "idMemberReferrer": null,
+      "initials": "K",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "kiera_radman"
+    }
+  },
+  {
+    "id": "5ccce7273e5dcf09be503c5c",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Dashboard Page",
+        "id": "5ca3da52edd4a463a6f303d3"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "SWy0750d",
+        "idShort": 87,
+        "name": "Explore adding a very specific instruction about adding pipeline - LOOK AT THIS DURING USER TESTING NEXT WEEK",
+        "id": "5ccce2c45a5e811b687731c4"
+      },
+      "text": "@marquesfarques fyi"
+    },
+    "type": "commentCard",
+    "date": "2019-05-04T01:13:11.349Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cd48a8a5144f06ea293fe57",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Dashboard Page",
+        "id": "5ca3da52edd4a463a6f303d3"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "nBl6sRbl",
+        "idShort": 92,
+        "name": "Need VERY obvious Add Pipeline CTA on dashboard",
+        "id": "5cd21358454e2a0458ad61eb"
+      },
+      "text": "@loudapena Also checking if we still need this card on the wall\n"
+    },
+    "type": "commentCard",
+    "date": "2019-05-09T20:16:10.369Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5ce45abafe313a1164cda72f",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Homepage/Website",
+        "id": "5ca3d9c838a7ba384f119f26"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "TEPM6HxT",
+        "idShort": 43,
+        "name": "Add/update links to test drive on website",
+        "id": "5cafc140c2179e14234c00f8"
+      },
+      "text": "@steven_st Let's prioritize these"
+    },
+    "type": "commentCard",
+    "date": "2019-05-21T20:08:26.277Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5ce59557f11c0a1e896978d0",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Homepage/Website",
+        "id": "5ca3d9c838a7ba384f119f26"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "LlRxc0UE",
+        "idShort": 98,
+        "name": "Add CTA to Features page",
+        "id": "5cdadb85a186f33a451d9143"
+      },
+      "text": "@steven_st @chandrakanth42 Please use: \"Test drive these GoCD features and more in minutes\" \n\nCTA: Start Now (I honestly don't know what to put here since we usually use Test Drive GoCD as the CTA text), but let's start here."
+    },
+    "type": "commentCard",
+    "date": "2019-05-22T18:30:47.220Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5ce5902a3b0e6e5b513dfee7",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Homepage/Website",
+        "id": "5ca3d9c838a7ba384f119f26"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "LlRxc0UE",
+        "idShort": 98,
+        "name": "Add CTA to Features page",
+        "id": "5cdadb85a186f33a451d9143"
+      },
+      "text": "@chandrakanth42 @loudapena I don't have a mockup, we can just change the text of one of the exiting CTA's. @loudapena, should I use the same copy that we used in our campaign, \"Test Drive GoCD in 5 Minutes\"?"
+    },
+    "type": "commentCard",
+    "date": "2019-05-22T18:08:42.464Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5ce4eb6f2bba3b55ee15f104",
+    "idMemberCreator": "5bb5c5d7a449b173256c4635",
+    "data": {
+      "list": {
+        "name": "Homepage/Website",
+        "id": "5ca3d9c838a7ba384f119f26"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "LlRxc0UE",
+        "idShort": 98,
+        "name": "Add CTA to Features page",
+        "id": "5cdadb85a186f33a451d9143"
+      },
+      "text": "Should we be adding new CTA or change the text of existing cta ? can I get mockup or more info on this @steven_st @loudapena "
+    },
+    "type": "commentCard",
+    "date": "2019-05-22T06:25:51.705Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5bb5c5d7a449b173256c4635",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Chandrakanth",
+      "idMemberReferrer": null,
+      "initials": "C",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "chandrakanth42"
+    }
+  },
+  {
+    "id": "5ce4b7e1e136533b0cd8c4bd",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Homepage/Website",
+        "id": "5ca3d9c838a7ba384f119f26"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "LlRxc0UE",
+        "idShort": 98,
+        "name": "Add CTA to Features page",
+        "id": "5cdadb85a186f33a451d9143"
+      },
+      "text": "@steven_st This is fine, I just want to ensure we can do that this week"
+    },
+    "type": "commentCard",
+    "date": "2019-05-22T02:45:53.284Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5ce4612f12deb734cfef4582",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Homepage/Website",
+        "id": "5ca3d9c838a7ba384f119f26"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "LlRxc0UE",
+        "idShort": 98,
+        "name": "Add CTA to Features page",
+        "id": "5cdadb85a186f33a451d9143"
+      },
+      "text": "@loudapena We have links/CTA's on the features page already, and can change the text to direct to the Test Drive page."
+    },
+    "type": "commentCard",
+    "date": "2019-05-21T20:35:59.926Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5ce45ae40e1b5d459636b485",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Homepage/Website",
+        "id": "5ca3d9c838a7ba384f119f26"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "LlRxc0UE",
+        "idShort": 98,
+        "name": "Add CTA to Features page",
+        "id": "5cdadb85a186f33a451d9143"
+      },
+      "text": "@steven_st @chandrakanth42 Any progress on this?"
+    },
+    "type": "commentCard",
+    "date": "2019-05-21T20:09:08.667Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cdc6ed8aef9a9664dab9113",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Homepage/Website",
+        "id": "5ca3d9c838a7ba384f119f26"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "LlRxc0UE",
+        "idShort": 98,
+        "name": "Add CTA to Features page",
+        "id": "5cdadb85a186f33a451d9143"
+      },
+      "text": "@loudapena For sure. Let me add @chandrakanth42 to this to let him know it will be next priority. It may be something good for him to pair with Veerababu on."
+    },
+    "type": "commentCard",
+    "date": "2019-05-15T19:56:08.213Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5cdc6ca1ca6b2827761735a1",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Homepage/Website",
+        "id": "5ca3d9c838a7ba384f119f26"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "LlRxc0UE",
+        "idShort": 98,
+        "name": "Add CTA to Features page",
+        "id": "5cdadb85a186f33a451d9143"
+      },
+      "text": "@steven_st I'd like to officially prioritize this, making it easy for those who want to explore features access to the test drive\n"
+    },
+    "type": "commentCard",
+    "date": "2019-05-15T19:46:41.687Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cf8199ab6fc5553a49fc5d9",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Homepage/Website",
+        "id": "5ca3d9c838a7ba384f119f26"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "xHHMXHsu",
+        "idShort": 128,
+        "name": "Chat crazyegg heatmap",
+        "id": "5cf7f8d69e93e224c403274c"
+      },
+      "text": "@kiera_radman @lpena Until we get better tracking set up for these CTAs I'd rather not make that total assumption, but it would appear that there is some discrepancy there. On major thing to note: Crazyegg ONLY captures data for the first 20 seconds of a users interaction with the page, which means that we are missing a part of the picture here. "
+    },
+    "type": "commentCard",
+    "date": "2019-06-05T19:35:54.486Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cf7fe78db9a2a55e29f7a45",
+    "idMemberCreator": "5bff2aae33cbb1135ffd69ec",
+    "data": {
+      "list": {
+        "name": "Homepage/Website",
+        "id": "5ca3d9c838a7ba384f119f26"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "xHHMXHsu",
+        "idShort": 128,
+        "name": "Chat crazyegg heatmap",
+        "id": "5cf7f8d69e93e224c403274c"
+      },
+      "text": "@lpena am I understanding this correctly, that most people navigate away from the page?  It seems odd that there is almost nothing on the download buttons (unless I'm blind), yet the \"heat\" on either side of the command \"./run-gocd\" indicates to me that people may be copy/pasting this command",
+      "textData": {
+        "emoji": {}
+      },
+      "dateLastEdited": "2019-06-05T17:44:38.726Z"
+    },
+    "type": "commentCard",
+    "date": "2019-06-05T17:40:08.347Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5bff2aae33cbb1135ffd69ec",
+      "avatarHash": "aa30db62948d2699f2609e8950f17963",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/aa30db62948d2699f2609e8950f17963",
+      "fullName": "kiera",
+      "idMemberReferrer": null,
+      "initials": "K",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "kiera_radman"
+    }
+  },
+  {
+    "id": "5cf7fb2d451840223d279e5a",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Homepage/Website",
+        "id": "5ca3d9c838a7ba384f119f26"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "xHHMXHsu",
+        "idShort": 128,
+        "name": "Chat crazyegg heatmap",
+        "id": "5cf7f8d69e93e224c403274c"
+      },
+      "text": "My hypothesis is that users may be scared off by the 'not for production' text. My reasoning behind this is that I see indications of people reading with their mouse (light blue hovers that follow the lines of text) over this paragraph, and then a significant amount of mouse activity over the 'setting up your gocd server' at the bottom."
+    },
+    "type": "commentCard",
+    "date": "2019-06-05T17:26:05.662Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5cf6eecba10c741d2b784d91",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Dashboard Page",
+        "id": "5ca3da52edd4a463a6f303d3"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "YQmiHhLH",
+        "idShort": 111,
+        "name": "How do we deal with empty pipelines in production?",
+        "id": "5ce455a2ffffc45364a91e5c"
+      },
+      "text": "@marquesfarques I think we should chat about this soon. I'd like to start getting things merged into production for the next release (not the one this week). Also, I'm not entirely sure what we've already pushed to production instance if we have at all. "
+    },
+    "type": "commentCard",
+    "date": "2019-06-04T22:20:59.142Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cf55751da9eab49fcd0754b",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Dashboard Page",
+        "id": "5ca3da52edd4a463a6f303d3"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "LCup4z3c",
+        "idShort": 106,
+        "name": "Clear visual indicator that on dashboard",
+        "id": "5ce3757c5c622820dbda27e5"
+      },
+      "text": "@naveenbhaskar6 I remember when we last spoke that you said there was already a PR for this work, but it had not gone into production. If that is the case, can you link us to that PR or github issue?"
+    },
+    "type": "commentCard",
+    "date": "2019-06-03T17:22:25.161Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5cf55397bf124e2dc920fcd2",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Dashboard Page",
+        "id": "5ca3da52edd4a463a6f303d3"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "LCup4z3c",
+        "idShort": 106,
+        "name": "Clear visual indicator that on dashboard",
+        "id": "5ce3757c5c622820dbda27e5"
+      },
+      "text": "Hey Naveen, can you send the design again so we can prioritize this story? Thanks.\n\n-- \nSteven Streisguth\nSenior Experience Designer\nEmail sstreisg@thoughtworks.com\nTelephone +1 267 997 0967 <+1%20267%20997%200967>\n[image: ThoughtWorks]\n<http://www.thoughtworks.com/?utm_campaign=steven-streisguth-signature&utm_medium=email&utm_source=thoughtworks-email-signature-generator>"
+    },
+    "type": "commentCard",
+    "date": "2019-06-03T17:06:30.000Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5cf4a20c23e7fa72939e46bf",
+    "idMemberCreator": "59bf69a310cbb50a5873904e",
+    "data": {
+      "list": {
+        "name": "Dashboard Page",
+        "id": "5ca3da52edd4a463a6f303d3"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "LCup4z3c",
+        "idShort": 106,
+        "name": "Clear visual indicator that on dashboard",
+        "id": "5ce3757c5c622820dbda27e5"
+      },
+      "text": "This is not done yet. I was not sure about who will be doing this. I have send the design to @steven_st sometime back. A dev help is required to do this.\n"
+    },
+    "type": "commentCard",
+    "date": "2019-06-03T04:29:00.322Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "59bf69a310cbb50a5873904e",
+      "avatarHash": "c68364abf712a092196fd59ea7d5ad72",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/c68364abf712a092196fd59ea7d5ad72",
+      "fullName": "Naveen Bhaskar",
+      "idMemberReferrer": null,
+      "initials": "NB",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "naveenbhaskar6"
+    }
+  },
+  {
+    "id": "5ceeda4c8edc42549ba0ee38",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Dashboard Page",
+        "id": "5ca3da52edd4a463a6f303d3"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "LCup4z3c",
+        "idShort": 106,
+        "name": "Clear visual indicator that on dashboard",
+        "id": "5ce3757c5c622820dbda27e5"
+      },
+      "text": "@naveenbhaskar6 Has this action been merged yet?"
+    },
+    "type": "commentCard",
+    "date": "2019-05-29T19:15:24.524Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cf88d6bc940553b82e740b4",
+    "idMemberCreator": "59bf69a310cbb50a5873904e",
+    "data": {
+      "list": {
+        "name": "To Do",
+        "id": "5cf6b4f1122e5264ae252e29"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "jILuibSx",
+        "idShort": 114,
+        "name": "Make page styles consistent with existing styles.",
+        "id": "5ce58f55ddba9b6a5eb13cba"
+      },
+      "text": "I will make the UI changes in a sketch file and send to you so that you can make the style changes in the app."
+    },
+    "type": "commentCard",
+    "date": "2019-06-06T03:50:03.763Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "59bf69a310cbb50a5873904e",
+      "avatarHash": "c68364abf712a092196fd59ea7d5ad72",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/c68364abf712a092196fd59ea7d5ad72",
+      "fullName": "Naveen Bhaskar",
+      "idMemberReferrer": null,
+      "initials": "NB",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "naveenbhaskar6"
+    }
+  },
+  {
+    "id": "5cf557182b05292a21d9d444",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "jILuibSx",
+        "idShort": 114,
+        "name": "Make page styles consistent with existing styles.",
+        "id": "5ce58f55ddba9b6a5eb13cba"
+      },
+      "text": "@naveenbhaskar6 If there are style issues that you think are important to change, can you list them for us so we can prioritize those changes?"
+    },
+    "type": "commentCard",
+    "date": "2019-06-03T17:21:28.157Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5cf556c2ac9e1817d204c70f",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "jILuibSx",
+        "idShort": 114,
+        "name": "Make page styles consistent with existing styles.",
+        "id": "5ce58f55ddba9b6a5eb13cba"
+      },
+      "text": "@naveenbhaskar6 I think there were some issues regarding consistency of text styles or other styles on the page (with the exception of the primary/secondary button)."
+    },
+    "type": "commentCard",
+    "date": "2019-06-03T17:20:02.566Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5cf55407997f22228fb3b55c",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "jILuibSx",
+        "idShort": 114,
+        "name": "Make page styles consistent with existing styles.",
+        "id": "5ce58f55ddba9b6a5eb13cba"
+      },
+      "text": "Hey Naveen, Marques and I worked on the images (the story is in another card) and those changes are in production.\n\n-- \nSteven Streisguth\nSenior Experience Designer\nEmail sstreisg@thoughtworks.com\nTelephone +1 267 997 0967 <+1%20267%20997%200967>\n[image: ThoughtWorks]\n<http://www.thoughtworks.com/?utm_campaign=steven-streisguth-signature&utm_medium=email&utm_source=thoughtworks-email-signature-generator>"
+    },
+    "type": "commentCard",
+    "date": "2019-06-03T17:08:23.000Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5cf4a163e5996563a4ed5d49",
+    "idMemberCreator": "59bf69a310cbb50a5873904e",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "jILuibSx",
+        "idShort": 114,
+        "name": "Make page styles consistent with existing styles.",
+        "id": "5ce58f55ddba9b6a5eb13cba"
+      },
+      "text": "@loudapena ... I had a discussion with @steven_st about this. 2 weeks back. He wanted to make some changes in the  illustrations in that page. As soon as I get the images, I can start working on this.\n@steven_st "
+    },
+    "type": "commentCard",
+    "date": "2019-06-03T04:26:11.736Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "59bf69a310cbb50a5873904e",
+      "avatarHash": "c68364abf712a092196fd59ea7d5ad72",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/c68364abf712a092196fd59ea7d5ad72",
+      "fullName": "Naveen Bhaskar",
+      "idMemberReferrer": null,
+      "initials": "NB",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "naveenbhaskar6"
+    }
+  },
+  {
+    "id": "5ceeda4217c9d86d6b709453",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "jILuibSx",
+        "idShort": 114,
+        "name": "Make page styles consistent with existing styles.",
+        "id": "5ce58f55ddba9b6a5eb13cba"
+      },
+      "text": "@naveenbhaskar6 Hi Naveen, I'd like to get some status on these stories. Would you be able to take a moment to update me? Thank you!"
+    },
+    "type": "commentCard",
+    "date": "2019-05-29T19:15:14.908Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cf8238965e4cf05972c354e",
+    "idMemberCreator": "5bff2aae33cbb1135ffd69ec",
+    "data": {
+      "text": "@marquesfarques would linking to the pipelines page or pipeline history be appropriate? we may want to test this with existing GoCD users",
+      "card": {
+        "id": "5ceefaae5f0c0b5636e9f577",
+        "name": "Display pipelines configured by config repo, allow linking to pipeline on dashboard",
+        "idShort": 118,
+        "shortLink": "HeiRIZ8x"
+      },
+      "board": {
+        "id": "5ca3d99a0378a65090e676ca",
+        "name": "Test Drive",
+        "shortLink": "iq20ZNIV"
+      },
+      "list": {
+        "id": "5ca641bb41632344d9ba6c95",
+        "name": "In Progress"
+      }
+    },
+    "type": "commentCard",
+    "date": "2019-06-05T20:18:17.006Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5bff2aae33cbb1135ffd69ec",
+      "avatarHash": "aa30db62948d2699f2609e8950f17963",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/aa30db62948d2699f2609e8950f17963",
+      "fullName": "kiera",
+      "idMemberReferrer": null,
+      "initials": "K",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "kiera_radman"
+    }
+  },
+  {
+    "id": "5cf04b5c210140600b0d5e62",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "HeiRIZ8x",
+        "idShort": 118,
+        "name": "Display pipelines configured by config repo, allow linking to pipeline on dashboard",
+        "id": "5ceefaae5f0c0b5636e9f577"
+      },
+      "text": "I'm not sure that we can guarantee linking to a pipeline on the dashboard because personalization filters might hide the pipeline. We should think about how to handle this case, or if we still want to link at all."
+    },
+    "type": "commentCard",
+    "date": "2019-05-30T21:30:04.615Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5ceefaeba30f166e33e804f8",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Config Repo SPA",
+        "id": "5ceefa8aa0461e0e8eabda7e"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "HeiRIZ8x",
+        "idShort": 118,
+        "name": "Display pipelines configured by config repo, allow linking to pipeline on dashboard",
+        "id": "5ceefaae5f0c0b5636e9f577"
+      },
+      "text": "@loudapena FYI"
+    },
+    "type": "commentCard",
+    "date": "2019-05-29T21:34:35.327Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cacdb162b86c725ccb21d27",
+    "idMemberCreator": "5bff2aae33cbb1135ffd69ec",
+    "data": {
+      "list": {
+        "name": "Other Product Work/Ideas",
+        "id": "5ca52ff089ca8d6fe7bafc13"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "zXPOe6Ux",
+        "idShort": 40,
+        "name": "Can we have a universal add pipeline button? (vs an add pipeline button per group)",
+        "id": "5ca697c18531027d0024d962"
+      },
+      "text": "@marquesfarques yes. right now it just populates the dropdown according to the pipeline group you add from "
+    },
+    "type": "commentCard",
+    "date": "2019-04-09T17:49:10.233Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5bff2aae33cbb1135ffd69ec",
+      "avatarHash": "aa30db62948d2699f2609e8950f17963",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/aa30db62948d2699f2609e8950f17963",
+      "fullName": "kiera",
+      "idMemberReferrer": null,
+      "initials": "K",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "kiera_radman"
+    }
+  },
+  {
+    "id": "5ca9a42e28b8352369cd857a",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Other Product Work/Ideas",
+        "id": "5ca52ff089ca8d6fe7bafc13"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "zXPOe6Ux",
+        "idShort": 40,
+        "name": "Can we have a universal add pipeline button? (vs an add pipeline button per group)",
+        "id": "5ca697c18531027d0024d962"
+      },
+      "text": "What would the behavior be? Would group selection happen later?"
+    },
+    "type": "commentCard",
+    "date": "2019-04-07T07:18:06.083Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5ce45c1135c53c443f6c1721",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "ZYR7bT37",
+        "idShort": 110,
+        "name": "Option for templates",
+        "id": "5ce45574171f0d7acdff9a92"
+      },
+      "text": "@ibnc2 I can fill you in on the context"
+    },
+    "type": "commentCard",
+    "date": "2019-05-21T20:14:09.589Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5ce5da10b689822cae9758d1",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "QvxFWBrj",
+        "idShort": 113,
+        "name": "V2 Concept Diagrams",
+        "id": "5ce58b98ef022b3815be63ab"
+      },
+      "text": "I've replaced the assets in production with these"
+    },
+    "type": "commentCard",
+    "date": "2019-05-22T23:24:00.079Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5ce5cc343f0c7b7ec91440b4",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "QvxFWBrj",
+        "idShort": 113,
+        "name": "V2 Concept Diagrams",
+        "id": "5ce58b98ef022b3815be63ab"
+      },
+      "text": "[Server Loading Page diagrams v2.zip](https://trello-attachments.s3.amazonaws.com/5ca3d99a0378a65090e676ca/5ce58b98ef022b3815be63ab/09cdf8c2a667555d5e60112ba17f54bb/Server_Loading_Page_diagrams_v2.zip) The Server loading page diagrams have been updated in conjunction with the Add Pipeline page diagrams."
+    },
+    "type": "commentCard",
+    "date": "2019-05-22T22:24:52.063Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5ce5cc0d79af85185045ac6e",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "QvxFWBrj",
+        "idShort": 113,
+        "name": "V2 Concept Diagrams",
+        "id": "5ce58b98ef022b3815be63ab"
+      },
+      "text": "[Product Diagrams v2.zip](https://trello-attachments.s3.amazonaws.com/5ca3d99a0378a65090e676ca/5ce58b98ef022b3815be63ab/dafa305e1d0733adaf1156e620abfd34/Product_Diagrams_v2.zip) The diagrams here are all 485px width for consistent display in the viewport."
+    },
+    "type": "commentCard",
+    "date": "2019-05-22T22:24:13.660Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5cef10cee2c51c4010a995de",
+    "idMemberCreator": "5c92ac8de07cf04cdfef6bdc",
+    "data": {
+      "list": {
+        "name": "Ready for QA",
+        "id": "5cdae9e148fba0246b2b8a7e"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "7s4yqUQW",
+        "idShort": 74,
+        "name": "Environment Variables Input Widget",
+        "id": "5cc112f303c8365415b23255"
+      },
+      "text": "@ibnc2 right, make sense. You can ignore my comments. :) \n\nMoving this card to done.",
+      "textData": {
+        "emoji": {}
+      },
+      "dateLastEdited": "2019-05-29T23:09:31.981Z"
+    },
+    "type": "commentCard",
+    "date": "2019-05-29T23:07:58.680Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c92ac8de07cf04cdfef6bdc",
+      "avatarHash": "4fa812c154ce8050c363b0794477f81a",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/4fa812c154ce8050c363b0794477f81a",
+      "fullName": "Ankit",
+      "idMemberReferrer": null,
+      "initials": "A",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "ankitsri"
+    }
+  },
+  {
+    "id": "5ceefdd27db5982b0bfeed5c",
+    "idMemberCreator": "5c2fa0623d0f14891c472c70",
+    "data": {
+      "list": {
+        "name": "Ready for QA",
+        "id": "5cdae9e148fba0246b2b8a7e"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "7s4yqUQW",
+        "idShort": 74,
+        "name": "Environment Variables Input Widget",
+        "id": "5cc112f303c8365415b23255"
+      },
+      "text": "@ankitsri We actually don't have the ability to add env vars for creating new pipelines with the old flow. With the old flow, you'd have to add them after creation"
+    },
+    "type": "commentCard",
+    "date": "2019-05-29T21:46:58.869Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c2fa0623d0f14891c472c70",
+      "avatarHash": "0d20a55f8af3bd313d3258d665d61c54",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/0d20a55f8af3bd313d3258d665d61c54",
+      "fullName": "ibnc",
+      "idMemberReferrer": null,
+      "initials": "I",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "ibnc2"
+    }
+  },
+  {
+    "id": "5ceef0b20991b617d4e64cdd",
+    "idMemberCreator": "5c92ac8de07cf04cdfef6bdc",
+    "data": {
+      "list": {
+        "name": "Ready for QA",
+        "id": "5cdae9e148fba0246b2b8a7e"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "7s4yqUQW",
+        "idShort": 74,
+        "name": "Environment Variables Input Widget",
+        "id": "5cc112f303c8365415b23255"
+      },
+      "text": "Verified on GoCD Version: 19.5.0 (9198-c3098d13bfddb40a39fa13a25bfcacbd23a76ecf).\n\nAt core we have it all three levels - pipeline, stage and job. \nPipeline \"trigger with options\" environment variable section enables when env. var. defined at pipeline level. "
+    },
+    "type": "commentCard",
+    "date": "2019-05-29T20:50:58.195Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c92ac8de07cf04cdfef6bdc",
+      "avatarHash": "4fa812c154ce8050c363b0794477f81a",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/4fa812c154ce8050c363b0794477f81a",
+      "fullName": "Ankit",
+      "idMemberReferrer": null,
+      "initials": "A",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "ankitsri"
+    }
+  },
+  {
+    "id": "5ce4a40b8d17ca285aec4adb",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Ready for QA",
+        "id": "5cdae9e148fba0246b2b8a7e"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "7s4yqUQW",
+        "idShort": 74,
+        "name": "Environment Variables Input Widget",
+        "id": "5cc112f303c8365415b23255"
+      },
+      "text": "I'll review the PR, then maybe pass this to @ankitsri to QA after merging."
+    },
+    "type": "commentCard",
+    "date": "2019-05-22T01:21:15.323Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cc11425caa5c42d57361f21",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "7s4yqUQW",
+        "idShort": 74,
+        "name": "Environment Variables Input Widget",
+        "id": "5cc112f303c8365415b23255"
+      },
+      "text": "I'm assuming these would be job-level, but I'm not sure if users would expect them to be \"global\" -- i.e., at the pipeline level. we could technically do this."
+    },
+    "type": "commentCard",
+    "date": "2019-04-25T01:57:57.561Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cf6b906b827f87880196bb7",
+    "idMemberCreator": "5c92ac8de07cf04cdfef6bdc",
+    "data": {
+      "list": {
+        "name": "Ready for QA",
+        "id": "5cdae9e148fba0246b2b8a7e"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "U7P5HuEL",
+        "idShort": 124,
+        "name": "[Bug] : Add pipeline to the newly created pipeline group points to the old workflow",
+        "id": "5cf590a62c350c205a94d69d"
+      },
+      "text": "Verified on GoCD Version: 19.5.0 (9256-83fb38f3aa942853b7cfafcf2c532a644a800837)."
+    },
+    "type": "commentCard",
+    "date": "2019-06-04T18:31:34.600Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c92ac8de07cf04cdfef6bdc",
+      "avatarHash": "4fa812c154ce8050c363b0794477f81a",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/4fa812c154ce8050c363b0794477f81a",
+      "fullName": "Ankit",
+      "idMemberReferrer": null,
+      "initials": "A",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "ankitsri"
+    }
+  },
+  {
+    "id": "5ce3238c44eda67eaee551e5",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Future/Other Product Work/Ideas",
+        "id": "5ca52ff089ca8d6fe7bafc13"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "NEVmznSl",
+        "idShort": 30,
+        "name": "Validate empty pipeline group",
+        "id": "5ca5251ec97eb14f2846d148"
+      },
+      "text": "@marquesfarques Do we need this card moved? Not sure if it matters"
+    },
+    "type": "commentCard",
+    "date": "2019-05-20T22:00:44.386Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5ca7b85930cdb388e83b6673",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Dashboard/Add Pipeline",
+        "id": "5ca3da52edd4a463a6f303d3"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "NEVmznSl",
+        "idShort": 30,
+        "name": "Validate empty pipeline group",
+        "id": "5ca5251ec97eb14f2846d148"
+      },
+      "text": "I don't think having an empty pipeline group makes the user more or less likely to add a pipeline at this point in the journey. The intention of the design is for a new user to not accidentally associate the pipeline they are about to create as being connected in any way to the example pipelines that we provide. Despite the fact that the spatial relationship of the pipelines on the pipeline group page have no bearing on whether or not they are connected, I saw indicators in our research that new users might mistakenly make that association, and that is not the experience we would like them to have.\n\n@kiera_radman @loudapena We can chat about this on Monday if you'd like.",
+      "textData": {
+        "emoji": {}
+      },
+      "dateLastEdited": "2019-04-05T20:21:32.344Z"
+    },
+    "type": "commentCard",
+    "date": "2019-04-05T20:19:37.081Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5ce5937d4e13a862bd11d27a",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Pipelines as Code (temporary column)",
+        "id": "5ce320021bdced2c66a019e8"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "6ghF9U5x",
+        "idShort": 101,
+        "name": "Wireframes for PAC prototypes",
+        "id": "5ce321a001bb9053221cb3c6"
+      },
+      "text": "@kiera Can you review/edit these as needed? I'd like to pass on to team soon"
+    },
+    "type": "commentCard",
+    "date": "2019-05-22T18:22:53.851Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cd329a1374b904794761576",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Done",
+        "id": "5ca641bf3bb9c64aaed92b94"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "DwNjSAbc",
+        "idShort": 91,
+        "name": "Make Save+Edit a grey button, add border to cancel button.",
+        "id": "5cd1bd119bd01127c51045e2"
+      },
+      "text": "Save+Edit is now a fg/bg color-inverted version of the Save+Run button."
+    },
+    "type": "commentCard",
+    "date": "2019-05-08T19:10:25.879Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cd195bf6cb2291baf0c9e0f",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "KrkAGca4",
+        "idShort": 90,
+        "name": "Auto trigger component (stage)",
+        "id": "5cd0efe85567dc616b31c4ac"
+      },
+      "text": "Context: this component’s style (or lack thereof) feels out of place compared to other form inputs.\n\nIt should be styled so the product feels polished.\n\nAn alternative to this control could be a switch, for which we already have a styled component. This could work as the choice is binary anyway.\n\nHowever, I would word this differently if choosing the switch approach as a switch provides an on-off concept: “Automatically run this stage after updates?”"
+    },
+    "type": "commentCard",
+    "date": "2019-05-07T14:27:11.723Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cd1dc21a779a664594a6db0",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Loading Page",
+        "id": "5ca3da4ed2ea2f3e8a13cc2d"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "M2HTQXl3",
+        "idShort": 88,
+        "name": "Next/Prev button hover color change",
+        "id": "5cd071a627601650d9eb7db0"
+      },
+      "text": "@ibnc2 That's great, thank you for taking care of that!"
+    },
+    "type": "commentCard",
+    "date": "2019-05-07T19:27:29.174Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5cd1c19ad4ae2f5c55ade982",
+    "idMemberCreator": "5c2fa0623d0f14891c472c70",
+    "data": {
+      "list": {
+        "name": "Loading Page",
+        "id": "5ca3da4ed2ea2f3e8a13cc2d"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "M2HTQXl3",
+        "idShort": 88,
+        "name": "Next/Prev button hover color change",
+        "id": "5cd071a627601650d9eb7db0"
+      },
+      "text": "@steven_st Sounds like a plan! I'll update the description\n\nThe open hand cursor is trying to indicate that it's draggable. The slideshow works with tablets and swiping with the mouse. That being said, swiping with the mouse isn't a common thing to do so I can just remove the cursor. "
+    },
+    "type": "commentCard",
+    "date": "2019-05-07T17:34:18.580Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c2fa0623d0f14891c472c70",
+      "avatarHash": "0d20a55f8af3bd313d3258d665d61c54",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/0d20a55f8af3bd313d3258d665d61c54",
+      "fullName": "ibnc",
+      "idMemberReferrer": null,
+      "initials": "I",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "ibnc2"
+    }
+  },
+  {
+    "id": "5cd1bff5c3560a3aa07df28c",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Loading Page",
+        "id": "5ca3da4ed2ea2f3e8a13cc2d"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "M2HTQXl3",
+        "idShort": 88,
+        "name": "Next/Prev button hover color change",
+        "id": "5cd071a627601650d9eb7db0"
+      },
+      "text": "@ibnc2 I agree. I think that around 50% darker should be fine. I also noticed during one of the interviews that when hovering over the slideshow images themselves, the cursor was an open hand which is an affordance indicating a click. Can we change that to the pointer cursor?"
+    },
+    "type": "commentCard",
+    "date": "2019-05-07T17:27:17.946Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5cd1bca877f26a5942fdfae2",
+    "idMemberCreator": "5c2fa0623d0f14891c472c70",
+    "data": {
+      "list": {
+        "name": "Loading Page",
+        "id": "5ca3da4ed2ea2f3e8a13cc2d"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "M2HTQXl3",
+        "idShort": 88,
+        "name": "Next/Prev button hover color change",
+        "id": "5cd071a627601650d9eb7db0"
+      },
+      "text": "@steven_st I was thinking that the loading page next/prev buttons should probably have a hover state color change to indicate that they're clickable. What're your thoughts on this, and how much darker it should get?"
+    },
+    "type": "commentCard",
+    "date": "2019-05-07T17:13:12.873Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c2fa0623d0f14891c472c70",
+      "avatarHash": "0d20a55f8af3bd313d3258d665d61c54",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/0d20a55f8af3bd313d3258d665d61c54",
+      "fullName": "ibnc",
+      "idMemberReferrer": null,
+      "initials": "I",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "ibnc2"
+    }
+  },
+  {
+    "id": "5cf01ec291341b56bcdc1c19",
+    "idMemberCreator": "5c92ac8de07cf04cdfef6bdc",
+    "data": {
+      "list": {
+        "name": "Ready for QA",
+        "id": "5cdae9e148fba0246b2b8a7e"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "uk6b53N4",
+        "idShort": 28,
+        "name": "Create empty pipeline group only for trial",
+        "id": "5ca523e26e6edf828ba10734"
+      },
+      "text": "Verified on \nGoCD Version: 19.5.0 (9199-0f084ba6bcbb30a908523c513307984ea816eaf8)"
+    },
+    "type": "commentCard",
+    "date": "2019-05-30T18:19:46.724Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c92ac8de07cf04cdfef6bdc",
+      "avatarHash": "4fa812c154ce8050c363b0794477f81a",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/4fa812c154ce8050c363b0794477f81a",
+      "fullName": "Ankit",
+      "idMemberReferrer": null,
+      "initials": "A",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "ankitsri"
+    }
+  },
+  {
+    "id": "5ce752b056c4631b9390d181",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Ready to merge",
+        "id": "5ce5ab5d89a56a80d941e565"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "uk6b53N4",
+        "idShort": 28,
+        "name": "Create empty pipeline group only for trial",
+        "id": "5ca523e26e6edf828ba10734"
+      },
+      "text": "I may split out some beneficial refactoring into a separate PR, in case we never put this in prod."
+    },
+    "type": "commentCard",
+    "date": "2019-05-24T02:10:56.847Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cd1bc9ad8685e03b6de654f",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Dashboard Page",
+        "id": "5ca3da52edd4a463a6f303d3"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "uk6b53N4",
+        "idShort": 28,
+        "name": "Create empty pipeline group only for trial",
+        "id": "5ca523e26e6edf828ba10734"
+      },
+      "text": "Looked into this a bit - at the surface, seems straightforward.\n\nFirst rock I tripped over: group permissions. The dashboard api needs permissions for each group and that is calculated from it child pipelines. I believe this is a solved problem though - choosing a sensible set of permissions based on more top-level configs. We seem to do this in part already in other places"
+    },
+    "type": "commentCard",
+    "date": "2019-05-07T17:12:58.056Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cafe733ee328714a4f5b621",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "5QDrNrdc",
+        "idShort": 34,
+        "name": "development of add pipeline page",
+        "id": "5ca529f8b3caf145d9db98c6"
+      },
+      "text": "@steven_st is it possible to get the concept diagrams with the surrounding white space trimmed? The prototype diagrams were hacked to used the svg images as backgrounds so I could clip, scale and reposition to remove all that, but required customizing all those attrs per image to get it right. Going forward, it would be more maintainable if the images didn’t need that level of customization to be usable. Not extremely urgent as I’ve done those calculations already, but it would make everything simpler to implement, esp if we continue to change the diagrams."
+    },
+    "type": "commentCard",
+    "date": "2019-04-12T01:17:39.179Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cafc1e6c27f7376d5d54afc",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Dashboard/Add Pipeline",
+        "id": "5ca3da52edd4a463a6f303d3"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "5QDrNrdc",
+        "idShort": 34,
+        "name": "development of add pipeline page",
+        "id": "5ca529f8b3caf145d9db98c6"
+      },
+      "text": "@marquesfarques Added you to this with a fairly aggressive deadline. I think we can probably break this out into several stories, so feel free to do that."
+    },
+    "type": "commentCard",
+    "date": "2019-04-11T22:38:30.361Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cafc0b85f7a1816c01a27e2",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Dashboard/Add Pipeline",
+        "id": "5ca3da52edd4a463a6f303d3"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "5QDrNrdc",
+        "idShort": 34,
+        "name": "development of add pipeline page",
+        "id": "5ca529f8b3caf145d9db98c6"
+      },
+      "text": "Potentially can be split up into parts as there are components to build. Won't know into which components until getting into it. Will update as progress happens."
+    },
+    "type": "commentCard",
+    "date": "2019-04-11T22:33:28.973Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cf01f3b403394559f8c352a",
+    "idMemberCreator": "5c92ac8de07cf04cdfef6bdc",
+    "data": {
+      "list": {
+        "name": "Ready for QA",
+        "id": "5cdae9e148fba0246b2b8a7e"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "02SKhAuC",
+        "idShort": 76,
+        "name": "Pipeline group dropdown",
+        "id": "5cc74f2dbf713f83bb1f4f9a"
+      },
+      "text": "Verified on \nGoCD Version: 19.5.0 (9199-0f084ba6bcbb30a908523c513307984ea816eaf8)"
+    },
+    "type": "commentCard",
+    "date": "2019-05-30T18:21:47.929Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c92ac8de07cf04cdfef6bdc",
+      "avatarHash": "4fa812c154ce8050c363b0794477f81a",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/4fa812c154ce8050c363b0794477f81a",
+      "fullName": "Ankit",
+      "idMemberReferrer": null,
+      "initials": "A",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "ankitsri"
+    }
+  },
+  {
+    "id": "5ce45ca59ad51f0fc377e640",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "02SKhAuC",
+        "idShort": 76,
+        "name": "Pipeline group dropdown",
+        "id": "5cc74f2dbf713f83bb1f4f9a"
+      },
+      "text": "We can probably just put this in the Advanced Settings of the pipeline info editor.\n\n@loudapena do we still need to think about concepts?"
+    },
+    "type": "commentCard",
+    "date": "2019-05-21T20:16:37.412Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cc8d9aca9c28d0781468c2b",
+    "idMemberCreator": "5c2fa0623d0f14891c472c70",
+    "data": {
+      "list": {
+        "name": "Done",
+        "id": "5ca641bf3bb9c64aaed92b94"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "02SKhAuC",
+        "idShort": 76,
+        "name": "Pipeline group dropdown",
+        "id": "5cc74f2dbf713f83bb1f4f9a"
+      },
+      "text": "Done unless we decide to change something. Otherwise would just need to be made visible. "
+    },
+    "type": "commentCard",
+    "date": "2019-04-30T23:26:36.523Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c2fa0623d0f14891c472c70",
+      "avatarHash": "0d20a55f8af3bd313d3258d665d61c54",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/0d20a55f8af3bd313d3258d665d61c54",
+      "fullName": "ibnc",
+      "idMemberReferrer": null,
+      "initials": "I",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "ibnc2"
+    }
+  },
+  {
+    "id": "5cd1940a3eb0b658983dd550",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Done",
+        "id": "5ca641bf3bb9c64aaed92b94"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "kkTSHNO9",
+        "idShort": 54,
+        "name": "Bindings for PipelineConfig model",
+        "id": "5cb795c7ebaa28825aa8aee5"
+      },
+      "text": "All the error handling is displayed now as of last night 👍🏼"
+    },
+    "type": "commentCard",
+    "date": "2019-05-07T14:19:54.674Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cd0a7689ebecc2afdb49494",
+    "idMemberCreator": "5c2fa0623d0f14891c472c70",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "kkTSHNO9",
+        "idShort": 54,
+        "name": "Bindings for PipelineConfig model",
+        "id": "5cb795c7ebaa28825aa8aee5"
+      },
+      "text": "@kiera_radman I don't think we should at least until we do the error handling, i.e. display the validation errors, for tasks"
+    },
+    "type": "commentCard",
+    "date": "2019-05-06T21:30:16.294Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c2fa0623d0f14891c472c70",
+      "avatarHash": "0d20a55f8af3bd313d3258d665d61c54",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/0d20a55f8af3bd313d3258d665d61c54",
+      "fullName": "ibnc",
+      "idMemberReferrer": null,
+      "initials": "I",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "ibnc2"
+    }
+  },
+  {
+    "id": "5cd084f7e5f5dd8820aba033",
+    "idMemberCreator": "5bff2aae33cbb1135ffd69ec",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "kkTSHNO9",
+        "idShort": 54,
+        "name": "Bindings for PipelineConfig model",
+        "id": "5cb795c7ebaa28825aa8aee5"
+      },
+      "text": "@marquesfarques we can consider this done right?"
+    },
+    "type": "commentCard",
+    "date": "2019-05-06T19:03:19.015Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5bff2aae33cbb1135ffd69ec",
+      "avatarHash": "aa30db62948d2699f2609e8950f17963",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/aa30db62948d2699f2609e8950f17963",
+      "fullName": "kiera",
+      "idMemberReferrer": null,
+      "initials": "K",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "kiera_radman"
+    }
+  },
+  {
+    "id": "5cf0385eb188ba5bb23e87a5",
+    "idMemberCreator": "5c92ac8de07cf04cdfef6bdc",
+    "data": {
+      "list": {
+        "name": "Ready for QA",
+        "id": "5cdae9e148fba0246b2b8a7e"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "g6MNhWNe",
+        "idShort": 105,
+        "name": "Style new pipeline buttons to be more of a CTA",
+        "id": "5ce3746c2a89df48133b01d0"
+      },
+      "text": "Verified on GoCD Version: 19.5.0 (9199-0f084ba6bcbb30a908523c513307984ea816eaf8).\n\n"
+    },
+    "type": "commentCard",
+    "date": "2019-05-30T20:09:02.767Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c92ac8de07cf04cdfef6bdc",
+      "avatarHash": "4fa812c154ce8050c363b0794477f81a",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/4fa812c154ce8050c363b0794477f81a",
+      "fullName": "Ankit",
+      "idMemberReferrer": null,
+      "initials": "A",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "ankitsri"
+    }
+  },
+  {
+    "id": "5cc0b4fc30a8466112ecdd2b",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "D2Lquncy",
+        "idShort": 53,
+        "name": "Survicate: Test Drive landing page survey",
+        "id": "5cb63248c35f424f6dd14c07"
+      },
+      "text": "Created survey, just waiting for it to be live"
+    },
+    "type": "commentCard",
+    "date": "2019-04-24T19:11:56.015Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cc33ba58260cf6f89b653b5",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "uuay2m83",
+        "idShort": 75,
+        "name": "Timebox Pipeline Material Autocomplete",
+        "id": "5cc1f018906e50015a5e9d5a"
+      },
+      "text": "@loudapena yes, I got it working, however I got word from BLR (and Pune) teams that one of the libraries I used to create it shouldn’t be used in the newer UI components because of some issues. So today, I will reimplement parts of it to use a different, safer lib. But it does work.",
+      "textData": {
+        "emoji": {}
+      },
+      "dateLastEdited": "2019-04-26T17:12:43.903Z"
+    },
+    "type": "commentCard",
+    "date": "2019-04-26T17:11:01.162Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cc321553a6a76817705c7cf",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "uuay2m83",
+        "idShort": 75,
+        "name": "Timebox Pipeline Material Autocomplete",
+        "id": "5cc1f018906e50015a5e9d5a"
+      },
+      "text": "@marquesfarques Any updates on how this went? "
+    },
+    "type": "commentCard",
+    "date": "2019-04-26T15:18:45.455Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cc21ab4294b3a08d9fe172f",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "ssf2WQ83",
+        "idShort": 47,
+        "name": "Add tooltips to certain fields",
+        "id": "5cafec4ef6224635171bc5d7"
+      },
+      "text": "@ibnc2 No, we've kept it minimal for now. \n"
+    },
+    "type": "commentCard",
+    "date": "2019-04-25T20:38:12.821Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cc2056bb77a523044310dc3",
+    "idMemberCreator": "5c2fa0623d0f14891c472c70",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "ssf2WQ83",
+        "idShort": 47,
+        "name": "Add tooltips to certain fields",
+        "id": "5cafec4ef6224635171bc5d7"
+      },
+      "text": "@loudapena is there anything else we want a tooltip attached to?\n"
+    },
+    "type": "commentCard",
+    "date": "2019-04-25T19:07:23.729Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c2fa0623d0f14891c472c70",
+      "avatarHash": "0d20a55f8af3bd313d3258d665d61c54",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/0d20a55f8af3bd313d3258d665d61c54",
+      "fullName": "ibnc",
+      "idMemberReferrer": null,
+      "initials": "I",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "ibnc2"
+    }
+  },
+  {
+    "id": "5cc0e3e390c9704dcbdec92e",
+    "idMemberCreator": "5c2fa0623d0f14891c472c70",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "ssf2WQ83",
+        "idShort": 47,
+        "name": "Add tooltips to certain fields",
+        "id": "5cafec4ef6224635171bc5d7"
+      },
+      "text": "Do we really need a tooltip for the destination dir when the label for it is \"Alternate Checkout Path?\" which is pretty much the tooltip content\n"
+    },
+    "type": "commentCard",
+    "date": "2019-04-24T22:32:03.872Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c2fa0623d0f14891c472c70",
+      "avatarHash": "0d20a55f8af3bd313d3258d665d61c54",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/0d20a55f8af3bd313d3258d665d61c54",
+      "fullName": "ibnc",
+      "idMemberReferrer": null,
+      "initials": "I",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "ibnc2"
+    }
+  },
+  {
+    "id": "5cb79f774f034b727ac32657",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "ssf2WQ83",
+        "idShort": 47,
+        "name": "Does the existing tooltip component work for this page?",
+        "id": "5cafec4ef6224635171bc5d7"
+      },
+      "text": "@loudapena Ok let’s just chat after standup then. If I don’t ping you on Slack, ping me and we can discuss."
+    },
+    "type": "commentCard",
+    "date": "2019-04-17T21:49:43.502Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cb79ee8677f0f33e746f7c7",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "ssf2WQ83",
+        "idShort": 47,
+        "name": "Does the existing tooltip component work for this page?",
+        "id": "5cafec4ef6224635171bc5d7"
+      },
+      "text": "@marquesfarques Whichever works best for you, I don't have anything scheduled post 10:30 tomorrow. "
+    },
+    "type": "commentCard",
+    "date": "2019-04-17T21:47:20.870Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cb7982128a5b350ff29bb77",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "ssf2WQ83",
+        "idShort": 47,
+        "name": "Does the existing tooltip component work for this page?",
+        "id": "5cafec4ef6224635171bc5d7"
+      },
+      "text": "@loudapena sure, I think that makes sense. did you want a formal time, or just an ad-hoc chat?"
+    },
+    "type": "commentCard",
+    "date": "2019-04-17T21:18:25.542Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cb797d722d68237802d7694",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "ssf2WQ83",
+        "idShort": 47,
+        "name": "Does the existing tooltip component work for this page?",
+        "id": "5cafec4ef6224635171bc5d7"
+      },
+      "text": "@marquesfarques I doubt you're planning on picking up this work tomorrow, but thought we could sit down and decide where the tooltips should go and discuss which text we should include. "
+    },
+    "type": "commentCard",
+    "date": "2019-04-17T21:17:11.388Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cbe036be0631b779f51311e",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "GHaPBsIv",
+        "idShort": 31,
+        "name": "collapsible advanced options component",
+        "id": "5ca52758b67255709d96bee5"
+      },
+      "text": "Tested a couple of polyfills for MS Edge but not looking great. Might just redo this as\n\n```\n<dl>\n  <dt/>\n  <dd/>\n</dl>\n```",
+      "textData": {
+        "emoji": {}
+      },
+      "dateLastEdited": "2019-04-22T18:10:49.124Z"
+    },
+    "type": "commentCard",
+    "date": "2019-04-22T18:09:47.850Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cba5f40962ff35c63869171",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "DHhEc5Tu",
+        "idShort": 66,
+        "name": "Extract Material Models from ConfigRepos to reuse on Add Pipeline page",
+        "id": "5cba0f46e78ede17b701e3dd"
+      },
+      "text": "@kiera_radman unfortunately, we probably can't extract the material components because they will look and act too differently (e.g., some options may be in advanced settings)"
+    },
+    "type": "commentCard",
+    "date": "2019-04-19T23:52:32.642Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cbaaac0be47ff242bbb0349",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "2b967GAt",
+        "idShort": 36,
+        "name": "Save and Run + Save and Edit components",
+        "id": "5ca52da54e19e75a9b49675c"
+      },
+      "text": "@ibnc2 I'm not sure if it makes sense to work on this further until we have more of the form built? Maybe we can move this card back to the \"Add Pipelines Page\" column and revisit when we're ready to create a pipeline from the form?",
+      "textData": {
+        "emoji": {}
+      },
+      "dateLastEdited": "2019-04-22T19:49:20.430Z"
+    },
+    "type": "commentCard",
+    "date": "2019-04-20T05:14:40.640Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cb797468fe8188aa4d1ee25",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "2b967GAt",
+        "idShort": 36,
+        "name": "Save and Run + Save and Edit components",
+        "id": "5ca52da54e19e75a9b49675c"
+      },
+      "text": "@marquesfarques Confirming that as well. We will be using both."
+    },
+    "type": "commentCard",
+    "date": "2019-04-17T21:14:46.823Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cb795847d285174aeea3cf9",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "2b967GAt",
+        "idShort": 36,
+        "name": "Save and Run + Save and Edit components",
+        "id": "5ca52da54e19e75a9b49675c"
+      },
+      "text": "Just to be clear for anyone picking up this work, I believe the decision at the moment is to include both options."
+    },
+    "type": "commentCard",
+    "date": "2019-04-17T21:07:16.690Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cb0fc6151fdb85757064c55",
+    "idMemberCreator": "5c87d27a19428f53ba5e8212",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "2b967GAt",
+        "idShort": 36,
+        "name": "Save and Run + Save and Edit components",
+        "id": "5ca52da54e19e75a9b49675c"
+      },
+      "text": "We can talk. Let me know which meeting I need to attend. About this decision, consider the case when a user has gone past a trial. What is their experience? They now know a pipeline can have multiple materials, stages, jobs, etc. How do they create a pipeline with that?\n\n1. Create pipeline with one material, stage, job.\n2. Save and run.\n3. Cancel the build.\n4. Edit pipeline.\n5. Save.\n6. Come back to dashboard and run."
+    },
+    "type": "commentCard",
+    "date": "2019-04-12T21:00:17.018Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c87d27a19428f53ba5e8212",
+      "avatarHash": "a5a6c3838faedbfa8d33524dc76c6103",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/a5a6c3838faedbfa8d33524dc76c6103",
+      "fullName": "Aravind SV",
+      "idMemberReferrer": null,
+      "initials": "AS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "arvind_sv"
+    }
+  },
+  {
+    "id": "5cb0df197367516a8f1fcb3d",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "2b967GAt",
+        "idShort": 36,
+        "name": "Save and Run + Save and Edit components",
+        "id": "5ca52da54e19e75a9b49675c"
+      },
+      "text": "@loudapena @marquesfarques @arvind_sv I feel like this is a discussion we should be having not in a trello card comment, since it is a nuanced decision. Can we chat about it as a group in our meeting on monday?"
+    },
+    "type": "commentCard",
+    "date": "2019-04-12T18:55:21.986Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5cb0d7d0da3369645ee1ae19",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "2b967GAt",
+        "idShort": 36,
+        "name": "Save and Run + Save and Edit components",
+        "id": "5ca52da54e19e75a9b49675c"
+      },
+      "text": "@steven_st @marquesfarques @arvind_sv What is the reasoning? We don't seem to have much evidence that folks would really head in this direction. The positive side of not having it is that we offer a streamlined experience for him that has appeared over many interviews to be the path of choice. I believe the reason we had the two options was due to making a big change to the actual product itself."
+    },
+    "type": "commentCard",
+    "date": "2019-04-12T18:24:16.478Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cb0d6c9f55be401561f959f",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "2b967GAt",
+        "idShort": 36,
+        "name": "Save and Run + Save and Edit components",
+        "id": "5ca52da54e19e75a9b49675c"
+      },
+      "text": "@marquesfarques @loudapena @arvind_sv I think we should still keep save an edit as the secondary option."
+    },
+    "type": "commentCard",
+    "date": "2019-04-12T18:19:53.611Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5cb0c9c06af7d8031e8228d6",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "2b967GAt",
+        "idShort": 36,
+        "name": "Save and Run + Save and Edit components",
+        "id": "5ca52da54e19e75a9b49675c"
+      },
+      "text": "@loudapena :thumbsup:\n\nI think we can get away without \"Save + Edit\" because I suspect people generally build a pipeline in a piecemeal fashion, rather than all at once. So I hypothesize that people would start with something relatively simple, save to see that it's right, then click the gear icon to continue tinkering. I also could be completely wrong :). @arvind_sv what do you think?"
+    },
+    "type": "commentCard",
+    "date": "2019-04-12T17:24:16.136Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cb0b06eb705c03964ef06f0",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "2b967GAt",
+        "idShort": 36,
+        "name": "Save and Run + Save and Edit components",
+        "id": "5ca52da54e19e75a9b49675c"
+      },
+      "text": "@marquesfarques My preference of keeping it simple may conflict with what needs to live in the product. Let's check with Duck on this to see if it's necessary. If it is not necessary, I think keeping it to Save+Run is not only the most intuitive, but the most common next step our users want to take. Consistently they all felt running it was the best thing to do to see if their pipeline worked. They wanted any additional configuration to take place after that had run."
+    },
+    "type": "commentCard",
+    "date": "2019-04-12T15:36:14.378Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cb622c0d4af9a4809c27ee8",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "x8GjfUYX",
+        "idShort": 16,
+        "name": "Wireframe design",
+        "id": "5ca51aabc6971257ff27e063"
+      },
+      "text": "@ibnc2 All the assets are here for the landing page"
+    },
+    "type": "commentCard",
+    "date": "2019-04-16T18:45:20.381Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cb4f58ebd01381bf78fbe25",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "x8GjfUYX",
+        "idShort": 16,
+        "name": "Wireframe design",
+        "id": "5ca51aabc6971257ff27e063"
+      },
+      "text": "@kiera_radman FYI"
+    },
+    "type": "commentCard",
+    "date": "2019-04-15T21:20:14.195Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cb4f58ab26d1613fd9f3288",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "x8GjfUYX",
+        "idShort": 16,
+        "name": "Wireframe design",
+        "id": "5ca51aabc6971257ff27e063"
+      },
+      "text": "For the banner image, let's use the same one as we currently have on the landing page."
+    },
+    "type": "commentCard",
+    "date": "2019-04-15T21:20:10.459Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5cb0d6cb339f5b7cd079e1b9",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Landing Page",
+        "id": "5ca3d9cdfe17ad62a0b6d8d2"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "x8GjfUYX",
+        "idShort": 16,
+        "name": "Wireframe design",
+        "id": "5ca51aabc6971257ff27e063"
+      },
+      "text": "@steven_st :thumbsup: \n"
+    },
+    "type": "commentCard",
+    "date": "2019-04-12T18:19:55.372Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cb0d64c130c4e3123d6686c",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Landing Page",
+        "id": "5ca3d9cdfe17ad62a0b6d8d2"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "x8GjfUYX",
+        "idShort": 16,
+        "name": "Wireframe design",
+        "id": "5ca51aabc6971257ff27e063"
+      },
+      "text": "@loudapena Monday, after these tests are done."
+    },
+    "type": "commentCard",
+    "date": "2019-04-12T18:17:48.913Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5caf98f6f1262f6e3d1812f7",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Landing Page",
+        "id": "5ca3d9cdfe17ad62a0b6d8d2"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "x8GjfUYX",
+        "idShort": 16,
+        "name": "Wireframe design",
+        "id": "5ca51aabc6971257ff27e063"
+      },
+      "text": "@steven_st Wondering when we can start picking up this work. Happy to pair\n"
+    },
+    "type": "commentCard",
+    "date": "2019-04-11T19:43:50.861Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cb4b6fcb9686a5bcffde002",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Homepage/Website",
+        "id": "5ca3d9c838a7ba384f119f26"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "1yQPa55D",
+        "idShort": 39,
+        "name": "Homepage updates",
+        "id": "5ca54a669e4a1c6b4eb868b3"
+      },
+      "text": "@kiera_radman Hey Kiera, how quickly can these be done? It's essentially what's been built for the try.gocd.org"
+    },
+    "type": "commentCard",
+    "date": "2019-04-15T16:53:16.609Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cafa862f4c8461deb049eb2",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "7COKHevf",
+        "idShort": 18,
+        "name": "Revisit copy in terminal to make sure expectations are clear",
+        "id": "5ca51c4a364f7103d51723cb"
+      },
+      "text": "@ibnc2 We definitely saw that as a confusing message the first time around. I think your suggestion makes a lot of sense. I'd prefer for them to know that they have to wait for that button to load instead of being mislead by the terminal message. I don't want them to stray too far of the journey, so if we tell them to go somewhere it should probably be something like \"... you can read about GoCD concepts while your server loads....\" et al. What do you think?\n"
+    },
+    "type": "commentCard",
+    "date": "2019-04-11T20:49:38.469Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cafa3c1a12af626cda7e725",
+    "idMemberCreator": "5c2fa0623d0f14891c472c70",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "7COKHevf",
+        "idShort": 18,
+        "name": "Revisit copy in terminal to make sure expectations are clear",
+        "id": "5ca51c4a364f7103d51723cb"
+      },
+      "text": "@loudapena I was thinking that the messaging around \"you may use GoCD server at: ...\" could be changed. It sort of implies that the server has completely started when it's not actually fully started. I was think something around the lines of \"While you wait for the server to fully start, you can go here: link\" or something along those lines. Thoughts?\n"
+    },
+    "type": "commentCard",
+    "date": "2019-04-11T20:29:53.959Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c2fa0623d0f14891c472c70",
+      "avatarHash": "0d20a55f8af3bd313d3258d665d61c54",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/0d20a55f8af3bd313d3258d665d61c54",
+      "fullName": "ibnc",
+      "idMemberReferrer": null,
+      "initials": "I",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "ibnc2"
+    }
+  },
+  {
+    "id": "5caf8d9e6194dd4d669b28b7",
+    "idMemberCreator": "5c2fa0623d0f14891c472c70",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "7COKHevf",
+        "idShort": 18,
+        "name": "Revisit copy in terminal to make sure expectations are clear",
+        "id": "5ca51c4a364f7103d51723cb"
+      },
+      "text": "@loudapena gotcha. I'll use my best judgement :)\n"
+    },
+    "type": "commentCard",
+    "date": "2019-04-11T18:55:26.024Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c2fa0623d0f14891c472c70",
+      "avatarHash": "0d20a55f8af3bd313d3258d665d61c54",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/0d20a55f8af3bd313d3258d665d61c54",
+      "fullName": "ibnc",
+      "idMemberReferrer": null,
+      "initials": "I",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "ibnc2"
+    }
+  },
+  {
+    "id": "5caf8abc000bb23ac6218357",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "7COKHevf",
+        "idShort": 18,
+        "name": "Revisit copy in terminal to make sure expectations are clear",
+        "id": "5ca51c4a364f7103d51723cb"
+      },
+      "text": "@ibnc2 Sure, we know the copy was a bit rough just to get the testing version out, and that what was provided in the terminal could be polished. I don't have much more clarification for you on that, but we should ensure that what is there makes sense to the user, that any URLs are correct and that all formatting is polished. I can help with any editing, but I think since a lot of this is meant to be read by developers it may make sense to run this by the group too. Does that help? If not, happy to jump on a call.\n"
+    },
+    "type": "commentCard",
+    "date": "2019-04-11T18:43:08.236Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5caf86552ea65514d751ca5f",
+    "idMemberCreator": "5c2fa0623d0f14891c472c70",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "7COKHevf",
+        "idShort": 18,
+        "name": "Revisit copy in terminal to make sure expectations are clear",
+        "id": "5ca51c4a364f7103d51723cb"
+      },
+      "text": "@loudapena can you clarify the work for this card?"
+    },
+    "type": "commentCard",
+    "date": "2019-04-11T18:24:21.069Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c2fa0623d0f14891c472c70",
+      "avatarHash": "0d20a55f8af3bd313d3258d665d61c54",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/0d20a55f8af3bd313d3258d665d61c54",
+      "fullName": "ibnc",
+      "idMemberReferrer": null,
+      "initials": "I",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "ibnc2"
+    }
+  },
+  {
+    "id": "5cabf81d18d5944e451a11e1",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "AipuVg1s",
+        "idShort": 42,
+        "name": "Experiment with using a terminal for adding tasks",
+        "id": "5cab9bd248ddf67d96acaf16"
+      },
+      "text": "https://codepen.io/marques-work/full/qwqXYv"
+    },
+    "type": "commentCard",
+    "date": "2019-04-09T01:40:45.054Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5ca86dbbde68d83baa79efc1",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Done",
+        "id": "5ca641bf3bb9c64aaed92b94"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "sSgiDGIr",
+        "idShort": 37,
+        "name": "Congrats box",
+        "id": "5ca52e6023657e82e1f28509"
+      },
+      "text": "Spike here: https://github.com/gocd/gocd/pull/6093"
+    },
+    "type": "commentCard",
+    "date": "2019-04-06T09:13:31.863Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5ca6634fc1805f2f6f28e8f2",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "sSgiDGIr",
+        "idShort": 37,
+        "name": "Congrats box",
+        "id": "5ca52e6023657e82e1f28509"
+      },
+      "text": "@steven_st What do you think of this concept? https://codepen.io/marques-work/full/mgPOWG",
+      "textData": {
+        "emoji": {}
+      },
+      "dateLastEdited": "2019-04-04T20:27:27.778Z"
+    },
+    "type": "commentCard",
+    "date": "2019-04-04T20:04:31.598Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5ca6507560748a884d53772a",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "sSgiDGIr",
+        "idShort": 37,
+        "name": "Congrats box",
+        "id": "5ca52e6023657e82e1f28509"
+      },
+      "text": "Spiking this out."
+    },
+    "type": "commentCard",
+    "date": "2019-04-04T18:44:05.787Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5ca54c564ee5584a652f5ece",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Loading Page",
+        "id": "5ca3da4ed2ea2f3e8a13cc2d"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "3X5SzMls",
+        "idShort": 25,
+        "name": "Previous/Next buttons",
+        "id": "5ca51ee852e5732681c4a007"
+      },
+      "text": "@ibnc2 @kiera_radman Just that they need to have some adjusted design to them, but I think we should defer to @steven_st about what they would look like. It was briefly mentioned but we didn't discuss.\n"
+    },
+    "type": "commentCard",
+    "date": "2019-04-04T00:14:14.451Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5ca54af883c7a56b564d30e0",
+    "idMemberCreator": "5c2fa0623d0f14891c472c70",
+    "data": {
+      "list": {
+        "name": "Loading Page",
+        "id": "5ca3da4ed2ea2f3e8a13cc2d"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "3X5SzMls",
+        "idShort": 25,
+        "name": "Previous/Next buttons",
+        "id": "5ca51ee852e5732681c4a007"
+      },
+      "text": "I don't understand this card... What is the work that it's supposed to represent? @kiera_radman @loudapena "
+    },
+    "type": "commentCard",
+    "date": "2019-04-04T00:08:24.681Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c2fa0623d0f14891c472c70",
+      "avatarHash": "0d20a55f8af3bd313d3258d665d61c54",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/0d20a55f8af3bd313d3258d665d61c54",
+      "fullName": "ibnc",
+      "idMemberReferrer": null,
+      "initials": "I",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "ibnc2"
+    }
+  },
+  {
+    "id": "5cae3ca9643105536d0bd0b5",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "Bv76UUNN",
+        "idShort": 23,
+        "name": "Diagram illustrations",
+        "id": "5ca51e24c40f676f1f6e1419"
+      },
+      "text": "I think we can consider this done.\n\n-- \nSteven Streisguth\nSenior Experience Designer\nEmail sstreisg@thoughtworks.com\nTelephone +1 267 997 0967 <+1%20267%20997%200967>\n[image: ThoughtWorks]\n<http://www.thoughtworks.com/?utm_campaign=steven-streisguth-signature&utm_medium=email&utm_source=thoughtworks-email-signature-generator>"
+    },
+    "type": "commentCard",
+    "date": "2019-04-10T18:57:44.000Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5cae353344eba41ad5367731",
+    "idMemberCreator": "5c2fa0623d0f14891c472c70",
+    "data": {
+      "list": {
+        "name": "In Progress",
+        "id": "5ca641bb41632344d9ba6c95"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "Bv76UUNN",
+        "idShort": 23,
+        "name": "Diagram illustrations",
+        "id": "5ca51e24c40f676f1f6e1419"
+      },
+      "text": "@steven_st can this be moved to Done?"
+    },
+    "type": "commentCard",
+    "date": "2019-04-10T18:25:55.819Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c2fa0623d0f14891c472c70",
+      "avatarHash": "0d20a55f8af3bd313d3258d665d61c54",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/0d20a55f8af3bd313d3258d665d61c54",
+      "fullName": "ibnc",
+      "idMemberReferrer": null,
+      "initials": "I",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "ibnc2"
+    }
+  },
+  {
+    "id": "5ca7be08371c7249370864f2",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Loading Page",
+        "id": "5ca3da4ed2ea2f3e8a13cc2d"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "Bv76UUNN",
+        "idShort": 23,
+        "name": "Diagram illustrations",
+        "id": "5ca51e24c40f676f1f6e1419"
+      },
+      "text": "Sketching these out today"
+    },
+    "type": "commentCard",
+    "date": "2019-04-05T20:43:52.362Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5cb611792eb7de217c918329",
+    "idMemberCreator": "5c921414a7d31618afb43dd0",
+    "data": {
+      "list": {
+        "name": "Done",
+        "id": "5ca641bf3bb9c64aaed92b94"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "PcV2gw0d",
+        "idShort": 44,
+        "name": "Trim extraneous whitespace from SVG diagrams for maintainable usage and standardized dimensions.",
+        "id": "5cafe7f56ebde526be4c0832"
+      },
+      "text": "@loudapena what @steven_st said :)"
+    },
+    "type": "commentCard",
+    "date": "2019-04-16T17:31:37.086Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "5c921414a7d31618afb43dd0",
+      "avatarHash": "1782d48d866d09ce7a830590f5d22719",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/1782d48d866d09ce7a830590f5d22719",
+      "fullName": "Marques Lee",
+      "idMemberReferrer": null,
+      "initials": "ML",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "marquesfarques"
+    }
+  },
+  {
+    "id": "5cb60fb0c1fbe86327ef88ea",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "PcV2gw0d",
+        "idShort": 44,
+        "name": "Trim extraneous whitespace from SVG diagrams for maintainable usage and standardized dimensions.",
+        "id": "5cafe7f56ebde526be4c0832"
+      },
+      "text": "@marquesfarques @loudapena This is taken care of.\n"
+    },
+    "type": "commentCard",
+    "date": "2019-04-16T17:24:00.992Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  },
+  {
+    "id": "5cb60bd13d9be359d8676705",
+    "idMemberCreator": "564cd4f72311056e5e0e6628",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "PcV2gw0d",
+        "idShort": 44,
+        "name": "Trim extraneous whitespace from SVG diagrams for maintainable usage and standardized dimensions.",
+        "id": "5cafe7f56ebde526be4c0832"
+      },
+      "text": "@marquesfarques @steven_st Did this get done? "
+    },
+    "type": "commentCard",
+    "date": "2019-04-16T17:07:29.482Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "564cd4f72311056e5e0e6628",
+      "avatarHash": "6750a326e3946cecfd6496d427787926",
+      "avatarUrl": "https://trello-avatars.s3.amazonaws.com/6750a326e3946cecfd6496d427787926",
+      "fullName": "Louda Peña",
+      "idMemberReferrer": null,
+      "initials": "LP",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "loudapena"
+    }
+  },
+  {
+    "id": "5cb0d621c00c61780c005b97",
+    "idMemberCreator": "575b0a71aa924b2c4777c803",
+    "data": {
+      "list": {
+        "name": "Add Pipeline Page",
+        "id": "5cafe99b3906ec23cf402801"
+      },
+      "board": {
+        "shortLink": "iq20ZNIV",
+        "name": "Test Drive",
+        "id": "5ca3d99a0378a65090e676ca"
+      },
+      "card": {
+        "shortLink": "PcV2gw0d",
+        "idShort": 44,
+        "name": "Trim extraneous whitespace from SVG diagrams for maintainable usage and standardized dimensions.",
+        "id": "5cafe7f56ebde526be4c0832"
+      },
+      "text": "@marquesfarques I saw a comment in an email about this but can't seem to find it here. Let me know what dimensions are needed for the image container on the page, and what format you'd like."
+    },
+    "type": "commentCard",
+    "date": "2019-04-12T18:17:05.247Z",
+    "limits": {
+      "reactions": {
+        "perAction": {
+          "status": "ok",
+          "disableAt": 1000,
+          "warnAt": 900
+        },
+        "uniquePerAction": {
+          "status": "ok",
+          "disableAt": 17,
+          "warnAt": 16
+        }
+      }
+    },
+    "memberCreator": {
+      "id": "575b0a71aa924b2c4777c803",
+      "avatarHash": null,
+      "avatarUrl": null,
+      "fullName": "Steven",
+      "idMemberReferrer": null,
+      "initials": "SS",
+      "nonPublic": {},
+      "nonPublicAvailable": false,
+      "username": "steven_st"
+    }
+  }
+]

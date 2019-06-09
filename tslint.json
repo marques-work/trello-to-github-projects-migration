@@ -5,14 +5,16 @@
   ],
   "rules": {
     // retain these
-    "one-variable-per-declaration": false,
-    "max-line-length": false,
     "array-type": [true, "array-simple"],
-    "object-literal-key-quotes":[true, "consistent-as-needed"],
+    "max-line-length": false,
+    "no-bitwise": false,
     "no-consecutive-blank-lines": true,
+    "no-console": false,
     "no-namespace": false,
     "no-shadowed-variable": false,
-    "no-console": false,
+    "object-literal-key-quotes":[true, "consistent-as-needed"],
+    "one-variable-per-declaration": false,
+    "ordered-imports": true,
     "quotemark": [
       false
     ],

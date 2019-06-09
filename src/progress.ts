@@ -1,4 +1,5 @@
-import {ApiResponse, isEntity} from "./types";
+import {ApiResponse} from "./api_base";
+import {isEntity} from "./types";
 import {isRegularFile, loadDataFromFile, writeDataToFile} from "./utils";
 
 interface Mapping {
@@ -100,7 +101,7 @@ export default class Progress {
       if (!progress.isDone(path, id)) {
         try {
           console.log(`  Trying ${path}.${id}...`);
-          const {body, status, headers} = await create();
+          const {body, status} = await create();
 
           if (status < 200 || status > 299) {
             throw new Error(`status should be 2XX, but was ${status}`);

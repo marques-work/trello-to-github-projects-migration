@@ -1,22 +1,22 @@
-import github, {body} from "./github";
+import minimist from "minimist";
+import github from "./github";
+import {mapLabelColor} from "./preloaded_data";
 import Progress from "./progress";
-import {CardQuery, MemberQuery} from "./queries";
+import {CardQuery} from "./queries";
 import sanity from "./sanity";
-import {Orderable, Typed} from "./types";
-import {die, filenameFromArgs, loadDataFromFile} from "./utils";
+import {sorted, Typed} from "./types";
+import {filenameFromArgs, loadConfig, loadDataFromFile} from "./utils";
 
-const PROGRESS = "progress.json"; // records how far we've gone in case we get interrupted
-const PROJ = 2748526; // project number 16
+const opts = minimist(process.argv.slice(2), { alias: { c: "config" } });
 
-const tree = loadDataFromFile(filenameFromArgs());
+const config = loadConfig(opts.config);
+const tree = loadDataFromFile(filenameFromArgs(...opts._));
 
 sanity(tree);
 
 const cards = new CardQuery(tree.cards);
-const members = new MemberQuery(tree.members);
-
-const lists = tree.lists.sort((a: Orderable, b: Orderable) => a.pos < b.pos);
-const progress = new Progress(PROGRESS, false);
+const lists = sorted(tree.lists);
+const progress = new Progress(config.progress, false);
 
 console.log("Statistics:\n", {
   lists: lists.length,
@@ -32,20 +32,37 @@ console.log("Statistics:\n", {
   comments: tree.actions.filter((a: Typed) => a.type === "commentCard").length
 });
 
+// preload data
+//   - member data and manually create mapping
+//   - manually create mappings for label colors
+// create lists
+// create labels
+// create issues (2 passes)
+//   PASS 1:
+//   - construct body:
+//     - description may have links to trello (mark for PASS 2)
+//     - build checklists and append
+//     - description @mentions (final step, in case checklists introduce mentions too)
+//   - assignees
+//
+//   PASS 2:
+//   - upload (?) and apply attachments as description
+//     - uploaded attachments maybe become image links or plain links
+//     - all non-uploads remain as links (including github PR/Issue links and trello...for now)
+//     - finally, remap trello card links to github issues
+//   - apply comments (with @mentions)
+//     - IT TURNS OUT WE NEED TO FETCH SEPARATELY -- the export doesn't contain all comments
+//     - remap trello links to issues in comment content
+//     - it's worth noting that the comment author will ALWAYS be the API user
+//       - we should prepend comments with the real author's username
+// create cards for each issue
+// move cards to column
+// mark cards as archived
+// mark issues as closed (could this be part of PASS 2?)
 sequence(
-  announce(ensureListsToColumns(PROJ, lists), "Lists")
-  // create labels
-  // create issues
-  // apply assignees
-  // apply checklists
-  // upload (?) and apply attachments
-  // create comments
-  // create cards
-  // move cards
+  announce(migrateAllLists(config.projId, lists), "Lists"),
+  announce(migrateAllLabels(config.owner, config.repo, tree.labels), "Labels"),
 );
-
-// body(github.labels.list("gocd", "gocd"));
-// github.columns.destroyAll(PROJ);
 
 function sequence(...promises: Array<Promise<any>>): Promise<any> {
   return (async () => {
@@ -65,35 +82,33 @@ function announce(promise: Promise<any>, name: string) {
   })();
 }
 
-function ensureListMigration(project: number, list: any) {
-  return progress.track("lists", list.id, () => github.columns.create(project, list.name));
+function migrateLabel(owner: string, repo: string, label: any) {
+  return progress.track("labels", label.id, () => github.labels.create(owner, repo, {
+    name: label.name,
+    color: mapLabelColor(label.color),
+    description: label.name
+  }));
 }
 
-function ensureListsToColumns(project: number, lists: any[]) {
+function migrateAllLabels(owner: string, repo: string, labels: any[]) {
   return (async () => {
-    for (const list of lists) {
-      await ensureListMigration(project, list);
+    for (const label of labels) {
+      await migrateLabel(owner, repo, label);
     }
   })();
 }
 
-const COLORS = {
-  black:  "708090",
-  blue:   "4169E1",
-  green:  "32CD32",
-  lime:   "00FA9A",
-  orange: "FF8C00",
-  pink:   "FF69B4",
-  purple: "EE82EE",
-  red:    "DC143C",
-  sky:    "AFEEEE",
-  yellow: "FFD700",
-};
+function migrateList(project: number, list: any) {
+  return progress.track("lists", list.id, () => github.columns.create(project, list.name));
+}
 
-// for (const list of tree.lists) {
-//   const lPayload = {id: list.id, name: list.name, closed: list.closed};
-
-// }
+function migrateAllLists(project: number, lists: any[]) {
+  return (async () => {
+    for (const list of lists) {
+      await migrateList(project, list);
+    }
+  })();
+}
 
 // console.log(Object.keys(tree));
 
