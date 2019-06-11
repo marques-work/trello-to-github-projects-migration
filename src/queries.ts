@@ -104,15 +104,17 @@ export class DescriptionRenderer {
   }
 }
 
-const TRELLO_LINK_RE = /\b(https:\/\/trello\.com\/c\/([a-z0-9]{8})(?:[\w/?&%.\-=]+))/igm;
+const TRELLO_LINK_RE = /\b(https:\/\/trello\.com\/c\/([a-z0-9]{8})(?:\/[\w/?&%.\-=]*)?)/igm;
 
 class Link {
   static isGithubObject(url: string): boolean {
-    return /\bhttps:\/\/github\.com\/[\w]+\/[\w]+\/(?:pull|issues)\/[\d]+/i.test(url);
+    return !!url.match(/\bhttps:\/\/github\.com\/[\w]+\/[\w]+\/(?:pull|issues)\/[\d]+/i);
   }
 
   static isTrelloCard(url: string): boolean {
-    return TRELLO_LINK_RE.test(url);
+    // use string.match(), not regex.test() here because of the `g` flag!
+    // See: https://stackoverflow.com/a/1520853
+    return !!url.match(TRELLO_LINK_RE);
   }
 
   static remapToGithub(text: string) {
