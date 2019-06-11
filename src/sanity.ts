@@ -56,7 +56,7 @@ export default function sanity(tree: any) {
   });
 
   function logger(path: string) {
-    return (...args: any[]) => console.log(`el at path ${path}`, ...args);
+    return (...args: any[]) => console.warn(`el at path ${path}`, ...args);
   }
 }
 

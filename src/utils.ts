@@ -58,7 +58,7 @@ function isValidConfig(c: Config | any): c is Config {
     return false;
   }
 
-  const keys: Array<keyof Config> = ["projId", "progress", "owner", "repo"];
+  const keys: Array<keyof Config> = ["projId", "progress", "owner", "repo", "sha"];
 
   for (const k of keys) {
     switch (k) {
@@ -68,6 +68,7 @@ function isValidConfig(c: Config | any): c is Config {
       case "progress":
       case "owner":
       case "repo":
+      case "sha":
         if ("string" !== typeof c[k] || "" === c[k].trim()) { fail(`config key "${k}" must be non-blank string`); }
         break;
     }
@@ -82,9 +83,13 @@ export function env(name: string): string {
   return process.env[name]!;
 }
 
-interface Config {
+interface Config extends ConfigGH {
   progress: string;
   projId:   number;
-  owner:    string;
-  repo:     string;
+}
+
+export interface ConfigGH {
+  owner: string;
+  repo:  string;
+  sha:   string;
 }

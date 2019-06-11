@@ -2,7 +2,7 @@ import minimist from "minimist";
 import github from "./github";
 import {mapLabelColor} from "./preloaded_data";
 import Progress from "./progress";
-import {CardQuery} from "./queries";
+import {CardQuery, ChecklistQuery, DescriptionRenderer, MemberQuery, UploadsQuery} from "./queries";
 import sanity from "./sanity";
 import {sorted, Typed} from "./types";
 import {filenameFromArgs, loadConfig, loadDataFromFile} from "./utils";
@@ -14,7 +14,13 @@ const tree = loadDataFromFile(filenameFromArgs(...opts._));
 
 sanity(tree);
 
-const cards = new CardQuery(tree.cards);
+const cardsQ = new CardQuery(tree.cards);
+const uploadsQ = new UploadsQuery(tree.cards);
+const membersQ = new MemberQuery(tree.members);
+const checklistsQ = new ChecklistQuery(tree.checklists);
+
+const descRenderer = new DescriptionRenderer(config, membersQ, checklistsQ, uploadsQ).renderer();
+
 const lists = sorted(tree.lists);
 const progress = new Progress(config.progress, false);
 
@@ -22,7 +28,7 @@ console.log("Statistics:\n", {
   lists: lists.length,
   labels: tree.labels.length,
   cards: tree.cards.length,
-  cardsWithAttachments: cards.hasAttachments.size,
+  cardsWithAttachments: cardsQ.hasAttachments.size,
   attachments: tree.cards.reduce((sum: number, c: any) => (sum + c.attachments.length), 0),
   attachmentsThatAreUploads: tree.cards.reduce((sum: number, c: any) => (sum + (c.attachments.reduce((res: number, a: any) => (res + (a.isUpload << 0)), 0))), 0),
   attachmentsThatAreCards: tree.cards.reduce((sum: number, c: any) => (sum + (c.attachments.reduce((res: number, a: any) => (res + ((!a.isUpload && a.url.startsWith("https://trello.com/c/")) << 0)), 0))), 0),
@@ -32,6 +38,8 @@ console.log("Statistics:\n", {
   comments: tree.actions.filter((a: Typed) => a.type === "commentCard").length
 });
 
+// NOTE: for test runs on another repo, you MUST add add the github users to the repo. Validation failures otherwise.
+
 // preload data
 //   - member data and manually create mapping
 //   - manually create mappings for label colors
@@ -39,17 +47,20 @@ console.log("Statistics:\n", {
 // create labels
 // create issues (2 passes)
 //   PASS 1:
-//   - construct body:
+//   - construct description:
+//     - prepend header indicating source trello card
+//       - must escape the trello URL to preserve it after remapping trello->github URLs in PASS 2
+//     - build checklists and append to description
+//     - build attachments and append to description
+//       - list as image links or plain links, depending on type
+//       - commit these to the repo and then revert. this way the attachments will live in git history
+//         for as long as the repo lives. total hack, but it works.
 //     - description may have links to trello (mark for PASS 2)
-//     - build checklists and append
-//     - description @mentions (final step, in case checklists introduce mentions too)
+//     - remap description @mentions (final step, in case checklists introduce mentions too)
 //   - assignees
 //
 //   PASS 2:
-//   - upload (?) and apply attachments as description
-//     - uploaded attachments maybe become image links or plain links
-//     - all non-uploads remain as links (including github PR/Issue links and trello...for now)
-//     - finally, remap trello card links to github issues
+//     - remap trello card links to github issues (covers, body, checklists, attachments)
 //   - apply comments (with @mentions)
 //     - IT TURNS OUT WE NEED TO FETCH SEPARATELY -- the export doesn't contain all comments
 //     - remap trello links to issues in comment content
@@ -60,8 +71,9 @@ console.log("Statistics:\n", {
 // mark cards as archived
 // mark issues as closed (could this be part of PASS 2?)
 sequence(
-  announce(migrateAllLists(config.projId, lists), "Lists"),
-  announce(migrateAllLabels(config.owner, config.repo, tree.labels), "Labels"),
+  announce("Lists", migrateAllLists(config.projId, lists)),
+  announce("Labels", migrateAllLabels(config.owner, config.repo, tree.labels)),
+  announce("Cards->Issues", migrateAllCardsToIssues(config.owner, config.repo, tree.cards))
 );
 
 function sequence(...promises: Array<Promise<any>>): Promise<any> {
@@ -70,7 +82,7 @@ function sequence(...promises: Array<Promise<any>>): Promise<any> {
   })().finally(() => progress.flush());
 }
 
-function announce(promise: Promise<any>, name: string) {
+function announce(name: string, promise: Promise<any>) {
   return (async () => {
     try {
       console.log(`Migrating ${name}...`);
@@ -80,6 +92,19 @@ function announce(promise: Promise<any>, name: string) {
       progress.flush();
     }
   })();
+}
+
+function migrateAllCardsToIssues(owner: string, repo: string, cards: any[]) {
+  return (async () => {
+    for (const card of cards) {
+      await migrateCardToIssue(owner, repo, card);
+    }
+  })();
+}
+
+function migrateCardToIssue(owner: string, repo: string, card: any) {
+  const payload = cardsQ.asIssueSpec(card.id, descRenderer, membersQ);
+  return progress.track("cards", card.id, () => github.issues.create(owner, repo, payload), ["number"]);
 }
 
 function migrateLabel(owner: string, repo: string, label: any) {

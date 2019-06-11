@@ -1,6 +1,6 @@
 import minimist from "minimist";
-import trello from "./trello";
-import {filenameFromArgs, loadDataFromFile, writeDataToFile} from "./utils";
+import trello from "../trello";
+import {filenameFromArgs, loadDataFromFile, writeDataToFile} from "../utils";
 
 const opts = minimist(process.argv.slice(2));
 const tree = loadDataFromFile(filenameFromArgs(...opts._));

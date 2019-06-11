@@ -95,7 +95,7 @@ export default class Progress {
     this.githubId = githubId;
   }
 
-  track(path: string, id: string, create: () => Promise<ApiResponse>) {
+  track(path: string, id: string, create: () => Promise<ApiResponse>, otherKeys: string[] = []) {
     const progress = this;
     return (async () => {
       if (!progress.isDone(path, id)) {
@@ -112,8 +112,12 @@ export default class Progress {
           }
 
           progress.markDone(path, id, body.id);
+
+          for (const key of otherKeys) { // allows us to cache other numeric mappings
+            progress.markDone(path + "." + key, id, (body as any)[key]);
+          }
         } catch (e) {
-          console.error(`  Failed to create ${path} item ${id} in GitHub`);
+          console.error(`  Failed to create ${path} item ${id} in GitHub${e.body ? " " + JSON.stringify(e.body, null, 2) : ""}`);
           throw e;
         }
       } else {

@@ -1,5 +1,6 @@
 import got, {GotInstance, GotJSONFn} from "got";
 import {Api, Model} from "./api_base";
+import {IssueSpec} from "./queries";
 import {env} from "./utils";
 
 function authToken(): string {
@@ -19,6 +20,10 @@ const symmetra: GotInstance<GotJSONFn> = gh.extend({ headers: { Accept: "applica
 
 class Issues extends Model {
   api = new Api(symmetra);
+
+  create(owner: string, repo: string, cardSpec: IssueSpec) {
+    return this.api.post(`/repos/${owner}/${repo}/issues`, cardSpec);
+  }
 }
 
 class Columns extends Model {
