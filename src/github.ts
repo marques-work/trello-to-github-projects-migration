@@ -1,5 +1,5 @@
 import got, {GotInstance, GotJSONFn} from "got";
-import {Api, Model} from "./api_base";
+import {Api, Model, q, Query} from "./api_base";
 import {IssueSpec} from "./queries";
 import {env} from "./utils";
 
@@ -26,12 +26,28 @@ interface IssueUpdateSpec {
 class Issues extends Model {
   api = new Api(symmetra);
 
+  list(owner: string, repo: string, filters?: Query) {
+    return this.api.get(`/repos/${owner}/${repo}/issues${filters ? "?" + q(filters) : ""}`);
+  }
+
   create(owner: string, repo: string, cardSpec: IssueSpec) {
     return this.api.post(`/repos/${owner}/${repo}/issues`, cardSpec);
   }
 
   update(owner: string, repo: string, issueNumber: number, payload: IssueUpdateSpec) {
     return this.api.patch(`/repos/${owner}/${repo}/issues/${issueNumber}`, payload);
+  }
+
+  closeAll(owner: string, repo: string) {
+    this.guard(`Are you sure you want to close all issues on ${owner}/${repo}?`, "I certainly am", () => {
+      this.list(owner, repo, {state: "open"}).then(({body}) => {
+        (async () => {
+          for (const issue of body) {
+            await this.update(owner, repo, issue.number, {state: "closed"});
+          }
+        })();
+      }).catch((e) => { throw e; });
+    });
   }
 }
 

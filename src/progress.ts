@@ -108,7 +108,7 @@ export default class Progress {
           }
 
           if (!isGithubEntity(body)) {
-            throw new TypeError(`Expected body.id to be a number! body: ${JSON.stringify(body)}`);
+            throw new TypeError(`Expected body.id (or body.number) to be a number! body: ${JSON.stringify(body)}`);
           }
 
           progress.markDone(path, id, body.id);

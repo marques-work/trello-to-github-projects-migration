@@ -76,83 +76,62 @@ sequence(
   announce("Labels", migrateAllLabels(config.owner, config.repo, tree.labels)),
   announce("Cards->Issues", migrateAllCardsToIssues(config.owner, config.repo, tree.cards)),
   announce("Cards->Links", migrateAllCardLinks(config.owner, config.repo, tree.cards)),
-);
+)();
 
-function sequence(...promises: Array<Promise<any>>): Promise<any> {
-  return (async () => {
-    for (const p of promises) { await p; } // promises, promises...
-  })().finally(() => progress.flush());
+type Promiser = () => Promise<any>;
+
+function migrateAllCardLinks(owner: string, repo: string, cards: any[]): Promiser {
+  return sequence(...cards.map((card) => migrateCardLinksToIssueNumbers(owner, repo, card)));
 }
 
-function announce(name: string, promise: Promise<any>) {
-  return (async () => {
-    try {
-      console.log(`Migrating ${name}...`);
-      await promise;
-      console.log(`${name} migrated.`);
-    } finally {
-      progress.flush();
-    }
-  })();
-}
-
-function migrateCardLinksToIssueNumbers(owner: string, repo: string, card: any) {
+function migrateCardLinksToIssueNumbers(owner: string, repo: string, card: any): Promiser {
   const body = linkMapper(descRenderer(card));
-  const issue = progress.githubId("cards.number", card.id)!;
-  return progress.track("card-links", card.id, () => github.issues.update(owner, repo, issue, { body }));
+  return () => progress.track("card-links", card.id, () => github.issues.update(owner, repo, progress.githubId("cards.number", card.id)!, { body }));
 }
 
-function migrateAllCardLinks(owner: string, repo: string, cards: any[]) {
-  return (async () => {
-    for (const card of cards) {
-      if (progress.isDone("cards.number", card.id)) {
-        await migrateCardLinksToIssueNumbers(owner, repo, card);
-      } else {
-        console.error(`skipping card ${card.shortLink}`);
-      }
-    }
-  })();
+function migrateAllCardsToIssues(owner: string, repo: string, cards: any[]): Promiser {
+  return sequence(...cards.map((card) => migrateCardToIssue(owner, repo, card)));
 }
 
-function migrateAllCardsToIssues(owner: string, repo: string, cards: any[]) {
-  return (async () => {
-    for (const card of cards) {
-      await migrateCardToIssue(owner, repo, card);
-    }
-  })();
-}
-
-function migrateCardToIssue(owner: string, repo: string, card: any) {
+function migrateCardToIssue(owner: string, repo: string, card: any): Promiser {
   const payload = cardsQ.asIssueSpec(card.id, descRenderer, membersQ);
-  return progress.track("cards", card.id, () => github.issues.create(owner, repo, payload), ["number"]);
+  return () => progress.track("cards", card.id, () => github.issues.create(owner, repo, payload), ["number"]);
 }
 
-function migrateLabel(owner: string, repo: string, label: any) {
-  return progress.track("labels", label.id, () => github.labels.create(owner, repo, {
+function migrateAllLabels(owner: string, repo: string, labels: any[]): Promiser {
+  return sequence(...labels.map((label) => migrateLabel(owner, repo, label)));
+}
+
+function migrateLabel(owner: string, repo: string, label: any): Promiser {
+  return () => progress.track("labels", label.id, () => github.labels.create(owner, repo, {
     name: label.name,
     color: mapLabelColor(label.color),
     description: label.name
   }));
 }
 
-function migrateAllLabels(owner: string, repo: string, labels: any[]) {
-  return (async () => {
-    for (const label of labels) {
-      await migrateLabel(owner, repo, label);
-    }
-  })();
+function migrateAllLists(project: number, lists: any[]) {
+  return sequence(...lists.map((list) => migrateList(project, list)));
 }
 
 function migrateList(project: number, list: any) {
-  return progress.track("lists", list.id, () => github.columns.create(project, list.name));
+  return () => progress.track("lists", list.id, () => github.columns.create(project, list.name));
 }
 
-function migrateAllLists(project: number, lists: any[]) {
+// Taks an array of Promisers, returning a Promiser that will execute promises sequentially
+function sequence(...promisers: Promiser[]): Promiser {
+  return () => (async () => {
+    for (const p of promisers) { await p(); } // promises, promises...
+  })().finally(() => progress.flush());
+}
+
+// Returns a Promiser wrapping the execution of a promise with text and flushes
+function announce(name: string, promiser: Promiser): Promiser {
   return (async () => {
-    for (const list of lists) {
-      await migrateList(project, list);
-    }
-  })();
+    console.log(`Migrating ${name}...`);
+    await promiser();
+    console.log(`${name} migrated.`);
+  });
 }
 
 // console.log(Object.keys(tree));
