@@ -41,36 +41,35 @@ console.log("Statistics:\n", {
 
 // NOTE: for test runs on another repo, you MUST add add the github users to the repo. Validation failures otherwise.
 
-// preload data
-//   - member data and manually create mapping
-//   - manually create mappings for label colors
-// create lists
-// create labels
-// create issues (2 passes)
-//   PASS 1:
-//   - construct description:
-//     - prepend header indicating source trello card
-//       - must escape the trello URL to preserve it after remapping trello->github URLs in PASS 2
-//     - build checklists and append to description
-//     - build attachments and append to description
-//       - list as image links or plain links, depending on type
+// √ preload data
+// √   - member data and manually create mapping
+// √   - manually create mappings for label colors
+// √ create lists
+// √ create labels
+//   create issues (2 passes)
+// √   PASS 1:
+// √   - construct description:
+// √     - prepend header indicating source trello card
+// √       - must escape the trello URL to preserve it after remapping trello->github URLs in PASS 2
+// √     - build checklists and append to description
+// √     - build attachments and append to description
+// √       - list as image links or plain links, depending on type
 //       - commit these to the repo and then revert. this way the attachments will live in git history
-//         for as long as the repo lives. total hack, but it works.
-//     - description may have links to trello (mark for PASS 2)
-//     - remap description @mentions (final step, in case checklists introduce mentions too)
-//   - assignees
+// √         for as long as the repo lives. total hack, but it works.
+// √     - remap description @mentions (final step, in case checklists introduce mentions too)
+// √   - assignees
 //
-//   PASS 2:
-//     - remap trello card links to github issues (covers, body, checklists, attachments)
-//   - apply comments (with @mentions)
-//     - IT TURNS OUT WE NEED TO FETCH SEPARATELY -- the export doesn't contain all comments
-//     - remap trello links to issues in comment content
-//     - it's worth noting that the comment author will ALWAYS be the API user
-//       - we should prepend comments with the real author's username
-// create cards for each issue
-// move cards to column
-// mark cards as archived
-// mark issues as closed (could this be part of PASS 2?)
+//     PASS 2:
+// √     - remap trello card links to github issues (covers, body, checklists, attachments)
+//       - apply comments (with @mentions)
+//       - IT TURNS OUT WE NEED TO FETCH SEPARATELY -- the export doesn't contain all comments
+//       - remap trello links to issues in comment content
+//       - it's worth noting that the comment author will ALWAYS be the API user
+//         - we should prepend comments with the real author's username
+//   create cards for each issue
+//   move cards to column
+//   mark cards as archived
+//   mark issues as closed (could this be part of PASS 2?)
 sequence(
   announce("Lists", migrateAllLists(config.projId, lists)),
   announce("Labels", migrateAllLabels(config.owner, config.repo, tree.labels)),
