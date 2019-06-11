@@ -1,20 +1,12 @@
 import {createHash} from "crypto";
 import {basename, extname} from "path";
 import {githubMemberByTrelloName} from "./preloaded_data";
-import {sorted} from "./types";
+import Progress from "./progress";
+import {Entity, sorted} from "./types";
 import {ConfigGH} from "./utils";
 
-const cardUrlPrefix = "https://trello.com/c/", prefixLen = cardUrlPrefix.length;
-
-function detectCardAttachment(a: any): boolean {
-  return !a.isUpload && a.url.startsWith(cardUrlPrefix);
-}
-
-function shortLinkFromUrl(url: string): string | undefined {
-  if (url.startsWith(cardUrlPrefix)) {
-    return url.slice(prefixLen, prefixLen + 8);
-  }
-}
+export type StringMapper = (input: string) => string;
+export type EntityRenderer = (entity: Entity) => string;
 
 function compact(arr: any[]): any[] {
   return arr.reduce((m, el) => {
@@ -26,8 +18,8 @@ function compact(arr: any[]): any[] {
 export interface IssueSpec {
   title: string;
   body: string;
-  labels: string[];
-  assignees: string[];
+  labels?: string[];
+  assignees?: string[];
 }
 
 export interface CommentSpec {
@@ -35,28 +27,15 @@ export interface CommentSpec {
 }
 
 export class CardQuery {
-  byId = new Map<string, any>();
-  byShortLink = new Map<string, any>();
-  hasAttachments = new Set<any>();
-  hasCardAttachments = new Set<any>();
-  attachedToOtherCard = new Set<any>();
+  byId = new Map<string, Entity>();
+  byShortLink = new Map<string, Entity>();
+  hasAttachments = new Set<Entity>();
 
-  constructor(cards: any[]) {
+  constructor(cards: Entity[]) {
     for (const c of cards) {
       this.byId.set(c.id, c);
       this.byShortLink.set(c.shortLink, c);
       if (c.attachments.length) { this.hasAttachments.add(c); }
-      if (c.attachments.find(detectCardAttachment)) { this.hasCardAttachments.add(c); }
-    }
-
-    for (const c of this.hasCardAttachments) {
-      for (const a of c.attachments.filter(detectCardAttachment)) {
-        const link = shortLinkFromUrl(a.url);
-        if (link) {
-          const dep = this.byShortLink.get(link);
-          if (dep) { this.attachedToOtherCard.add(dep); }
-        }
-      }
     }
   }
 
@@ -84,7 +63,7 @@ export class DescriptionRenderer {
     this.uploads = uploads;
   }
 
-  renderer(): (card: any) => string {
+  renderer(): EntityRenderer {
     const urlMapper = (url: string) => this.uploads.remap(url, this.config.owner, this.config.repo, this.config.sha);
     return (card: any) => (compact([this.cardHeader(card), AttachmentsTransform.applyToDesc(
       this.members.replaceMentions(
@@ -93,7 +72,7 @@ export class DescriptionRenderer {
       ).trim()] as string[]).join("\n\n"));
   }
 
-  private cardHeader(card: any) {
+  private cardHeader(card: any): string {
     return `> Migrated from [Trello Card ${card.idShort}](${this.escapeTrelloUrlFromReplacer(card.shortUrl)})`;
   }
 
@@ -106,7 +85,7 @@ export class DescriptionRenderer {
 
 const TRELLO_LINK_RE = /\b(https:\/\/trello\.com\/c\/([a-z0-9]{8})(?:\/[\w/?&%.\-=]*)?)/igm;
 
-class Link {
+export class Link {
   static isGithubObject(url: string): boolean {
     return !!url.match(/\bhttps:\/\/github\.com\/[\w]+\/[\w]+\/(?:pull|issues)\/[\d]+/i);
   }
@@ -117,9 +96,20 @@ class Link {
     return !!url.match(TRELLO_LINK_RE);
   }
 
-  static remapToGithub(text: string) {
-    // tslint:disable-next-line variable-name
-    return text.replace(TRELLO_LINK_RE, (_: string, _u: string, shortId: string) => `#${shortId}`);
+  static remapToGithub(cards: CardQuery, progress: Progress): StringMapper {
+    function resolver(shortLink: string) {
+      if (cards.byShortLink.has(shortLink)) {
+        const trelloId = cards.byShortLink.get(shortLink)!.id;
+        const issueNum = progress.githubId("cards.number", trelloId);
+        if (void 0 !== issueNum) {
+          return `#${issueNum}`;
+        }
+        console.error(`Link: ${shortLink} (id: ${trelloId}) was not resolved to a Github Issue`);
+      }
+    }
+
+    return (text: string) =>
+      text.replace(TRELLO_LINK_RE, (_: string, trelloUrl: string, shortId: string) => (resolver(shortId) || trelloUrl));
   }
 }
 
@@ -133,9 +123,10 @@ class AttachmentsTransform {
       if (a.isUpload) {
         uploads.push(`* ${AttachmentsTransform.isImg(a.name) ? "!" : ""}[${a.name}](${urlMapper(a.url)})`);
       } else {
-        if (Link.isGithubObject(a.url) || Link.isTrelloCard(a.url)) {
+        if (Link.isGithubObject(a.url) || Link.isTrelloCard(a.url) || a.name === a.url) {
           related.push(`* ${a.url}`);
         } else {
+          console.log("dupe name/url?", a.name, a.url);
           related.push(`* [${a.name}](${a.url})`);
         }
       }

@@ -1,5 +1,5 @@
 import {ApiResponse} from "./api_base";
-import {isEntity} from "./types";
+import {isGithubEntity} from "./types";
 import {isRegularFile, loadDataFromFile, writeDataToFile} from "./utils";
 
 interface Mapping {
@@ -107,7 +107,7 @@ export default class Progress {
             throw new Error(`status should be 2XX, but was ${status}`);
           }
 
-          if (!isEntity(body)) {
+          if (!isGithubEntity(body)) {
             throw new TypeError(`Expected body.id to be a number! body: ${JSON.stringify(body)}`);
           }
 

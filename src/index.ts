@@ -2,7 +2,7 @@ import minimist from "minimist";
 import github from "./github";
 import {mapLabelColor} from "./preloaded_data";
 import Progress from "./progress";
-import {CardQuery, ChecklistQuery, DescriptionRenderer, MemberQuery, UploadsQuery} from "./queries";
+import {CardQuery, ChecklistQuery, DescriptionRenderer, Link, MemberQuery, UploadsQuery} from "./queries";
 import sanity from "./sanity";
 import {sorted, Typed} from "./types";
 import {filenameFromArgs, loadConfig, loadDataFromFile} from "./utils";
@@ -14,15 +14,16 @@ const tree = loadDataFromFile(filenameFromArgs(...opts._));
 
 sanity(tree);
 
+const progress = new Progress(config.progress, false);
+
+const lists = sorted(tree.lists);
 const cardsQ = new CardQuery(tree.cards);
 const uploadsQ = new UploadsQuery(tree.cards);
 const membersQ = new MemberQuery(tree.members);
 const checklistsQ = new ChecklistQuery(tree.checklists);
 
 const descRenderer = new DescriptionRenderer(config, membersQ, checklistsQ, uploadsQ).renderer();
-
-const lists = sorted(tree.lists);
-const progress = new Progress(config.progress, false);
+const linkMapper = Link.remapToGithub(cardsQ, progress);
 
 console.log("Statistics:\n", {
   lists: lists.length,
@@ -73,7 +74,8 @@ console.log("Statistics:\n", {
 sequence(
   announce("Lists", migrateAllLists(config.projId, lists)),
   announce("Labels", migrateAllLabels(config.owner, config.repo, tree.labels)),
-  announce("Cards->Issues", migrateAllCardsToIssues(config.owner, config.repo, tree.cards))
+  announce("Cards->Issues", migrateAllCardsToIssues(config.owner, config.repo, tree.cards)),
+  announce("Cards->Links", migrateAllCardLinks(config.owner, config.repo, tree.cards)),
 );
 
 function sequence(...promises: Array<Promise<any>>): Promise<any> {
@@ -90,6 +92,24 @@ function announce(name: string, promise: Promise<any>) {
       console.log(`${name} migrated.`);
     } finally {
       progress.flush();
+    }
+  })();
+}
+
+function migrateCardLinksToIssueNumbers(owner: string, repo: string, card: any) {
+  const body = linkMapper(descRenderer(card));
+  const issue = progress.githubId("cards.number", card.id)!;
+  return progress.track("card-links", card.id, () => github.issues.update(owner, repo, issue, { body }));
+}
+
+function migrateAllCardLinks(owner: string, repo: string, cards: any[]) {
+  return (async () => {
+    for (const card of cards) {
+      if (progress.isDone("cards.number", card.id)) {
+        await migrateCardLinksToIssueNumbers(owner, repo, card);
+      } else {
+        console.error(`skipping card ${card.shortLink}`);
+      }
     }
   })();
 }

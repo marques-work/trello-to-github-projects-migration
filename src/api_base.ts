@@ -31,6 +31,10 @@ export class Api {
     return request(this.client.post(uri, {body}));
   }
 
+  patch(uri: string, body: any = {}) {
+    return request(this.client.patch(uri, {body}));
+  }
+
   delete(uri: string) {
     return request(this.client.delete(uri));
   }

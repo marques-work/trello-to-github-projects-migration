@@ -18,11 +18,20 @@ const gh = got.extend({
 const inertia: GotInstance<GotJSONFn> = gh.extend({ headers: { Accept: "application/vnd.github.inertia-preview+json" } });
 const symmetra: GotInstance<GotJSONFn> = gh.extend({ headers: { Accept: "application/vnd.github.symmetra-preview+json" } });
 
+interface IssueUpdateSpec {
+  body?: string;
+  state?: "open" | "closed";
+}
+
 class Issues extends Model {
   api = new Api(symmetra);
 
   create(owner: string, repo: string, cardSpec: IssueSpec) {
     return this.api.post(`/repos/${owner}/${repo}/issues`, cardSpec);
+  }
+
+  update(owner: string, repo: string, issueNumber: number, payload: IssueUpdateSpec) {
+    return this.api.patch(`/repos/${owner}/${repo}/issues/${issueNumber}`, payload);
   }
 }
 
