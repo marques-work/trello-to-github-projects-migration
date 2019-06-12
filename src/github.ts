@@ -48,8 +48,17 @@ export interface CardUpdateSpec {
   archived: boolean;
 }
 
+export interface CardMoveSpec {
+  column_id?: number;
+  position: string;
+}
+
 class Cards extends Model {
   api = new Api(inertia);
+
+  list(columnId: number) {
+    return this.api.get(`/projects/columns/${columnId}/cards?archived_state=all`);
+  }
 
   create(columnId: number, payload: CardSpec) {
     return this.api.post(`/projects/columns/${columnId}/cards`, payload);
@@ -57,6 +66,10 @@ class Cards extends Model {
 
   update(ghId: number, payload: CardUpdateSpec) {
     return this.api.patch(`/projects/columns/cards/${ghId}`, payload);
+  }
+
+  move(ghId: number, payload: CardMoveSpec) {
+    return this.api.post(`/projects/columns/cards/${ghId}/moves`, payload);
   }
 
   delete(ghId: number) {

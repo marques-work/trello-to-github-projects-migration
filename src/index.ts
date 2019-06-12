@@ -6,7 +6,7 @@ import {announce, Promiser, sequence} from "./promises";
 import {CardQuery, ChecklistQuery, CommentsQuery, Link, MemberQuery, UploadsQuery} from "./queries";
 import sanity from "./sanity";
 import {Entity, sortByPos} from "./types";
-import {filenameFromArgs, loadConfig, loadDataFromFile} from "./utils";
+import {filenameFromArgs, loadConfig, loadDataFromFile, mustExist} from "./utils";
 
 const opts = minimist(process.argv.slice(2), { alias: { c: "config" } });
 
@@ -28,6 +28,11 @@ const linkMapper      = Link.remapToGithub(cardsQ, progress);
 const cardRenderer    = cardsQ.renderer(config, membersQ, checklistsQ, uploadsQ);
 const commentRenderer = commentsQ.renderer(Link.remapToGithub(cardsQ, progress), cardsQ, membersQ);
 
+const archiveList = mustExist<Entity>(
+  lists.find((l) => l.name.toLowerCase() === config.archiveListName.toLowerCase()),
+  `Cannot resolve archive Trello list with name ${config.archiveListName}`,
+);
+
 console.log("Statistics:\n", {
   lists: lists.length,
   labels: tree.labels.length,
@@ -41,6 +46,8 @@ console.log("Statistics:\n", {
   members: tree.members.length,
   comments: commentsQ.length
 });
+
+const allCards = tree.cards;
 
 // CAVEATS:
 //   - for test runs on another repo, you MUST add add the github users to the
@@ -77,8 +84,6 @@ console.log("Statistics:\n", {
 // √       - remap @mentions (final step, in case checklists introduce mentions too)
 // √ create cards for each issue in the corresponding column
 // √ mark cards as archived
-const allCards = tree.cards;
-
 save(
   sequence(
     announce("Lists", migrateAllLists(config.projId, lists)),
@@ -87,17 +92,26 @@ save(
     announce("Cards->Links", migrateAllCardLinks(config.owner, config.repo, allCards)),
     announce("Comments", migrateAllComments(config.owner, config.repo, allCards)),
     announce("Cards->Project Cards", migrateAllCardsToGithubCard(allCards)),
-    announce("Archived State on Project Cards", maybeArchiveAllGithubCards(allCards)),
+    announce("Archived Project Cards", migrateAllArchivedCards(allCards.filter((c: Entity) => c.closed))),
   )
 )();
 
-function maybeArchiveAllGithubCards(cards: Entity[]) {
-  return save(sequence(...cards.map((card) => maybeArchiveGithubCard(card))));
+function migrateAllArchivedCards(cards: Entity[]) {
+  return save(sequence(...cards.map((card) => migrateArchivedCard(card))));
 }
-function maybeArchiveGithubCard(card: Entity): Promiser {
-  return () => progress.track("cards.state", card.id, () => github.cards.update(
-    progress.githubIdOrDie("project-cards", card.id), { archived: card.closed })
-  );
+
+function migrateArchivedCard(card: Entity): Promiser {
+  return () => progress.track("project-cards.state", card.id, () => {
+    const ghCardId = progress.githubIdOrDie("project-cards", card.id);
+    const columnId = progress.githubIdOrDie("lists", archiveList.id);
+    return (card.idList !== archiveList) ?
+      sequence(
+        // move() does not return a body, so do this first to avoid any errors in promise resolution
+        () => github.cards.move(ghCardId, { column_id: columnId, position: "bottom" }),
+        () => github.cards.update(ghCardId, { archived: true }),
+      )() :
+      github.cards.update(ghCardId, { archived: true });
+  });
 }
 
 function migrateAllCardsToGithubCard(cards: Entity[]): Promiser {

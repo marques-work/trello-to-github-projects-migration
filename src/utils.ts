@@ -60,7 +60,7 @@ function isValidConfig(c: Config | any): c is Config {
     return false;
   }
 
-  const keys: Array<keyof Config> = ["projId", "progress", "owner", "repo", "sha"];
+  const keys: Array<keyof Config> = ["projId", "progress", "owner", "repo", "sha", "archiveListName"];
 
   for (const k of keys) {
     switch (k) {
@@ -71,6 +71,7 @@ function isValidConfig(c: Config | any): c is Config {
       case "owner":
       case "repo":
       case "sha":
+      case "archiveListName":
         if ("string" !== typeof c[k] || "" === c[k].trim()) { fail(`config key "${k}" must be non-blank string`); }
         break;
     }
@@ -93,6 +94,10 @@ export function compact(arr: any[]): any[] {
 }
 
 export function mustBeString(maybe: string | undefined, message: string): string {
+  return mustExist<string>(maybe, message);
+}
+
+export function mustExist<T>(maybe: T | undefined, message: string): T {
   if (void 0 === maybe) {
     throw message;
   }
@@ -108,8 +113,9 @@ export function sha256(subj: string): string {
 }
 
 interface Config extends ConfigGH {
-  progress: string;
-  projId:   number;
+  progress:        string;
+  projId:          number;
+  archiveListName: string;
 }
 
 export interface ConfigGH {
