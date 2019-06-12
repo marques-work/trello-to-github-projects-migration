@@ -1,6 +1,5 @@
 import got, {GotInstance, GotJSONFn} from "got";
 import {Api, Model, q, Query} from "./api_base";
-import {IssueSpec} from "./queries";
 import {env} from "./utils";
 
 function authToken(): string {
@@ -21,6 +20,23 @@ const symmetra: GotInstance<GotJSONFn> = gh.extend({ headers: { Accept: "applica
 interface IssueUpdateSpec {
   body?: string;
   state?: "open" | "closed";
+}
+
+interface LabelSpec {
+  name: string;
+  color: string;
+  description?: string;
+}
+
+export interface IssueSpec {
+  title: string;
+  body: string;
+  labels?: string[];
+  assignees?: string[];
+}
+
+export interface CommentSpec {
+  body: string;
 }
 
 class Issues extends Model {
@@ -48,6 +64,14 @@ class Issues extends Model {
         })();
       }).catch((e) => { throw e; });
     });
+  }
+}
+
+class Comments extends Model {
+  api = new Api(gh);
+
+  create(owner: string, repo: string, issueNum: number, payload: CommentSpec) {
+    return this.api.post(`/repos/${owner}/${repo}/issues/${issueNum}/comments`, payload);
   }
 }
 
@@ -107,17 +131,10 @@ class Labels extends Model {
   }
 }
 
-interface LabelSpec {
-  name: string;
-  color: string;
-  description?: string;
-}
-
 export default {
   columns: new Columns(),
   cards: inertia,
   issues: new Issues(),
-  assignees: symmetra,
-  comments: gh,
+  comments: new Comments(),
   labels: new Labels()
 };

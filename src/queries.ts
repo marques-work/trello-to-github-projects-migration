@@ -1,5 +1,6 @@
 import {createHash} from "crypto";
 import {basename, extname} from "path";
+import {CommentSpec, IssueSpec} from "./github";
 import {githubMemberByTrelloName} from "./preloaded_data";
 import Progress from "./progress";
 import {Entity, sorted} from "./types";
@@ -15,19 +16,20 @@ function compact(arr: any[]): any[] {
   }, []);
 }
 
-export interface IssueSpec {
-  title: string;
-  body: string;
-  labels?: string[];
-  assignees?: string[];
+function mustBeString(maybe: string | undefined, message: string): string {
+  if (void 0 === maybe) {
+    throw message;
+  }
+  return maybe;
 }
 
-export interface CommentSpec {
-  body: string;
-}
+// Negative lookbehind only supported by newer V8 - meaning MODERN chrome and node
+// This find number tags that are NOT part of a URL
+const CARD_TAG_RE = /(?<!http[s]?:\/\/[\w\/?&%.#+=\-]+)#(\d+)\b/gim;
 
 export class CardQuery {
   byId = new Map<string, Entity>();
+  byNumber = new Map<string, Entity>();
   byShortLink = new Map<string, Entity>();
   hasAttachments = new Set<Entity>();
 
@@ -35,11 +37,12 @@ export class CardQuery {
     for (const c of cards) {
       this.byId.set(c.id, c);
       this.byShortLink.set(c.shortLink, c);
+      this.byNumber.set(c.idShort + "", c);
       if (c.attachments.length) { this.hasAttachments.add(c); }
     }
   }
 
-  asIssueSpec(id: string, descRenderer: (card: any) => string, members: MemberQuery): IssueSpec {
+  asIssueSpec(id: string, descRenderer: EntityRenderer, members: MemberQuery): IssueSpec {
     const card = this.byId.get(id)!;
     return {
       title: card.name,
@@ -48,28 +51,34 @@ export class CardQuery {
       assignees: compact(card.idMembers.map((mId: string) => members.githubLoginFor(mId)))
     };
   }
-}
 
-export class DescriptionRenderer {
-  config: ConfigGH;
-  members: MemberQuery;
-  checklists: ChecklistQuery;
-  uploads: UploadsQuery;
-
-  constructor(config: ConfigGH, members: MemberQuery, checklists: ChecklistQuery, uploads: UploadsQuery) {
-    this.config = config;
-    this.members = members;
-    this.checklists = checklists;
-    this.uploads = uploads;
+  renderer(config: ConfigGH, members: MemberQuery, checklists: ChecklistQuery, uploads: UploadsQuery): EntityRenderer {
+    const urlMapper = (url: string) => uploads.remap(url, config.owner, config.repo, config.sha);
+    return (card: Entity) => (compact([this.cardHeader(card),
+      this.expandTrelloCardNumbersToUrl(
+        AttachmentsTransform.applyToDesc(
+        members.replaceMentions(
+          checklists.applyToDesc(card.desc || "", card.idChecklists)
+          ), card.attachments, urlMapper
+        )
+      ).trim()] as string[]).join("\n\n"));
   }
 
-  renderer(): EntityRenderer {
-    const urlMapper = (url: string) => this.uploads.remap(url, this.config.owner, this.config.repo, this.config.sha);
-    return (card: any) => (compact([this.cardHeader(card), AttachmentsTransform.applyToDesc(
-      this.members.replaceMentions(
-        this.checklists.applyToDesc(card.desc || "", card.idChecklists)
-        ), card.attachments, urlMapper
-      ).trim()] as string[]).join("\n\n"));
+  urlByNumber(trelloNumber: number | string): string {
+    if (!this.byNumber.has(String(trelloNumber))) {
+      throw new Error(`Cannot find trello card number #${trelloNumber}`);
+    }
+    return this.byNumber.get(String(trelloNumber))!.shortUrl;
+  }
+
+  // Some folks referred to Trello cards by a number tag (even though that doesn't actually work
+  // in Trello) so we should map them back to Trello URLs so that we can map them to proper GitHub
+  // numbers in PASS 2.
+  //
+  // NOTE: either way, we shouldn't ignore these number tags because if we left them here, they
+  // would inadvertently reference random GitHub issues, and that's not good.
+  expandTrelloCardNumbersToUrl(text: string): string {
+    return text.replace(CARD_TAG_RE, (_, trelloNum) => this.urlByNumber(trelloNum));
   }
 
   private cardHeader(card: any): string {
@@ -77,8 +86,8 @@ export class DescriptionRenderer {
   }
 
   private escapeTrelloUrlFromReplacer(trelloUrl: string): string {
-    // when you want a the original trello URL that won't be converted to a
-    // github issue URL during the URL replacement
+    // when you want a the original Trello URL that won't be converted to a
+    // GitHub issue URL during the URL replacement
     return trelloUrl.replace(/\//g, "&#x002f;");
   }
 }
@@ -124,9 +133,10 @@ class AttachmentsTransform {
         uploads.push(`* ${AttachmentsTransform.isImg(a.name) ? "!" : ""}[${a.name}](${urlMapper(a.url)})`);
       } else {
         if (Link.isGithubObject(a.url) || Link.isTrelloCard(a.url) || a.name === a.url) {
+          // otherwise end up with [#123](#123) after remapping trello -> github,
+          // which is wrong (won't link to issue/PR)!
           related.push(`* ${a.url}`);
         } else {
-          console.log("dupe name/url?", a.name, a.url);
           related.push(`* [${a.name}](${a.url})`);
         }
       }
@@ -154,24 +164,47 @@ class AttachmentsTransform {
   }
 }
 
-function sortByDate(arr: any[]) {
+function sortByDate<T>(arr: T[]): T[] {
   return arr.slice().sort((a: any, b: any) => (new Date(a.date)).getTime() - (new Date(b.date)).getTime());
 }
 
 export class CommentsQuery {
-  byCard = new Map<string, any[]>();
+  byCard = new Map<string, Entity[]>();
 
-  constructor(comments: any[]) {
+  readonly length: number;
+
+  constructor(comments: Entity[]) {
+    this.length = comments.length;
+
     for (const c of comments) {
-      const all = this.byCard.get(c.data.card.id) || [];
-      all.push(c);
-      this.byCard.set(c.data.card.id, sortByDate(all));
+      this.byCard.set(c.data.card.id, sortByDate<Entity>((this.byCard.get(c.data.card.id) || []).concat(c)));
     }
   }
 
-  static asSpec(comment: any, members: MemberQuery): CommentSpec {
-    const body = members.replaceMentions(comment.text);
-    return { body };
+  getCommentsFor(card: Entity): Entity[] {
+    return this.byCard.get(card.id) || [];
+  }
+
+  renderer(linkMapper: StringMapper, cards: CardQuery, members: MemberQuery): EntityRenderer {
+    return (comment: Entity) => compact([
+      this.authorHeader(comment, members).trim(),
+      linkMapper(
+        cards.expandTrelloCardNumbersToUrl(
+          members.replaceMentions(comment.data.text)
+        )
+      ).trim()
+    ]).join("\n\n");
+  }
+
+  authorHeader(comment: Entity, members: MemberQuery): string {
+    return [
+      `> Migrated comment original author: @${mustBeString(members.githubLoginFor(comment.idMemberCreator), `Failed to resolve member ${comment.idMember}`)}`,
+      `> Original date: ${new Date(comment.date).toUTCString()} [(what's this in my time zone?)](https://dencode.com/en/date/ctime?v=${encodeURIComponent(comment.date)})`
+    ].join("\n");
+  }
+
+  asSpec(comment: any, renderer: EntityRenderer): CommentSpec {
+    return { body: renderer(comment) };
   }
 }
 
@@ -267,23 +300,9 @@ export class MemberQuery {
     }
   }
 
-  githubIdFor(id: string): number | undefined {
-    if (this.hasGithubById(id)) {
-      return this.byId.get(id).id;
-    }
-  }
-
   githubLoginFor(id: string): string | undefined {
-    if (this.hasGithubById(id)) {
+    if (this.byId.has(id)) {
       return this.byId.get(id).login;
     }
-  }
-
-  hasGithubById(id: string): boolean {
-    return this.byId.has(id);
-  }
-
-  hasGithubByName(username: string): boolean {
-    return this.byUser.has(username);
   }
 }

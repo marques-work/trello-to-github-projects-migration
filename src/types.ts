@@ -1,9 +1,9 @@
 interface Generic { [key: string]: any; }
 
 // Trello Types
-export interface Orderable extends Generic { pos: number; }
-export interface Typed extends Generic { type: string; }
 export interface Entity extends Generic { id: string; }
+export interface Orderable extends Entity { pos: number; }
+export interface Typed extends Entity { type: string; }
 
 export function sorted(arr: Orderable[]) {
   return arr.slice().sort((a: Orderable, b: Orderable) => a.pos - b.pos);

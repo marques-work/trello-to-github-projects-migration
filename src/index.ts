@@ -2,9 +2,10 @@ import minimist from "minimist";
 import github from "./github";
 import {mapLabelColor} from "./preloaded_data";
 import Progress from "./progress";
-import {CardQuery, ChecklistQuery, DescriptionRenderer, Link, MemberQuery, UploadsQuery} from "./queries";
+import {announce, Promiser, sequence} from "./promises";
+import {CardQuery, ChecklistQuery, CommentsQuery, Link, MemberQuery, UploadsQuery} from "./queries";
 import sanity from "./sanity";
-import {sorted, Typed} from "./types";
+import {Entity, sorted} from "./types";
 import {filenameFromArgs, loadConfig, loadDataFromFile} from "./utils";
 
 const opts = minimist(process.argv.slice(2), { alias: { c: "config" } });
@@ -16,14 +17,16 @@ sanity(tree);
 
 const progress = new Progress(config.progress, false);
 
-const lists = sorted(tree.lists);
-const cardsQ = new CardQuery(tree.cards);
-const uploadsQ = new UploadsQuery(tree.cards);
-const membersQ = new MemberQuery(tree.members);
+const lists       = sorted(tree.lists);
+const cardsQ      = new CardQuery(tree.cards);
 const checklistsQ = new ChecklistQuery(tree.checklists);
+const commentsQ   = new CommentsQuery(loadDataFromFile("comments.json"));
+const membersQ    = new MemberQuery(tree.members);
+const uploadsQ    = new UploadsQuery(tree.cards);
 
-const descRenderer = new DescriptionRenderer(config, membersQ, checklistsQ, uploadsQ).renderer();
-const linkMapper = Link.remapToGithub(cardsQ, progress);
+const linkMapper      = Link.remapToGithub(cardsQ, progress);
+const cardRenderer    = cardsQ.renderer(config, membersQ, checklistsQ, uploadsQ);
+const commentRenderer = commentsQ.renderer(Link.remapToGithub(cardsQ, progress), cardsQ, membersQ);
 
 console.log("Statistics:\n", {
   lists: lists.length,
@@ -36,11 +39,14 @@ console.log("Statistics:\n", {
   attachmentsThatAreOther: tree.cards.reduce((sum: number, c: any) => (sum + (c.attachments.reduce((res: number, a: any) => (res + ((!a.isUpload && !a.url.startsWith("https://trello.com/c/")) as any << 0)), 0))), 0),
   checklists: tree.checklists.length,
   members: tree.members.length,
-  comments: tree.actions.filter((a: Typed) => a.type === "commentCard").length
+  comments: commentsQ.length
 });
 
-// NOTE: for test runs on another repo, you MUST add add the github users to the repo. Validation failures otherwise.
-
+// CAVEATS:
+//   - for test runs on another repo, you MUST add add the github users to the
+//     repo. Validation failures otherwise.
+//   - IT TURNS OUT WE NEED TO FETCH SEPARATELY -- the export doesn't contain all comments
+//
 // √ preload data
 // √   - member data and manually create mapping
 // √   - manually create mappings for label colors
@@ -51,57 +57,78 @@ console.log("Statistics:\n", {
 // √   - construct description:
 // √     - prepend header indicating source trello card
 // √       - must escape the trello URL to preserve it after remapping trello->github URLs in PASS 2
+// √     - convert trello number tags (e.g., #123) to trello URLs (later will be remapped to github issues)
 // √     - build checklists and append to description
 // √     - build attachments and append to description
 // √       - list as image links or plain links, depending on type
 //       - commit these to the repo and then revert. this way the attachments will live in git history
 // √         for as long as the repo lives. total hack, but it works.
-// √     - remap description @mentions (final step, in case checklists introduce mentions too)
+// √     - remap @mentions (final step, in case checklists introduce mentions too)
 // √   - assignees
 //
-//     PASS 2:
+// √   PASS 2:
 // √     - remap trello card links to github issues (covers, body, checklists, attachments)
-//       - apply comments (with @mentions)
-//       - IT TURNS OUT WE NEED TO FETCH SEPARATELY -- the export doesn't contain all comments
-//       - remap trello links to issues in comment content
-//       - it's worth noting that the comment author will ALWAYS be the API user
-//         - we should prepend comments with the real author's username
+// √     - apply comments (with @mentions)
+// √       - convert trello number tags (e.g., #123) to trello URLs (later will be remapped to github issues)
+// √       - remap trello links to issues in comment content
+// √       - prepend header indicating original comment author as github will author the
+//           comment from the user owning the API key
+// √       - remap @mentions (final step, in case checklists introduce mentions too)
 //   create cards for each issue
 //   move cards to column
 //   mark cards as archived
 //   mark issues as closed (could this be part of PASS 2?)
-sequence(
-  announce("Lists", migrateAllLists(config.projId, lists)),
-  announce("Labels", migrateAllLabels(config.owner, config.repo, tree.labels)),
-  announce("Cards->Issues", migrateAllCardsToIssues(config.owner, config.repo, tree.cards)),
-  announce("Cards->Links", migrateAllCardLinks(config.owner, config.repo, tree.cards)),
+save(
+  sequence(
+    announce("Lists", migrateAllLists(config.projId, lists)),
+    announce("Labels", migrateAllLabels(config.owner, config.repo, tree.labels)),
+    announce("Cards->Issues", migrateAllCardsToIssues(config.owner, config.repo, tree.cards)),
+    announce("Cards->Links", migrateAllCardLinks(config.owner, config.repo, tree.cards)),
+    announce("Comments", migrateAllComments(config.owner, config.repo, tree.cards)),
+  )
 )();
 
-type Promiser = () => Promise<any>;
-
-function migrateAllCardLinks(owner: string, repo: string, cards: any[]): Promiser {
-  return sequence(...cards.map((card) => migrateCardLinksToIssueNumbers(owner, repo, card)));
+function save(doTask: Promiser): Promiser {
+  return () => doTask().finally(progress.flush);
 }
 
-function migrateCardLinksToIssueNumbers(owner: string, repo: string, card: any): Promiser {
-  const body = linkMapper(descRenderer(card));
+function migrateAllComments(owner: string, repo: string, cards: Entity[]): Promiser {
+  return save(sequence(...cards.map((card) => migrateCommentsOnCard(owner, repo, card))));
+}
+
+function migrateCommentsOnCard(owner: string, repo: string, card: Entity): Promiser {
+  return sequence(
+    ...(commentsQ.getCommentsFor(card).map((cm) => () => progress.track(
+          "comments",
+          cm.id,
+          () => github.comments.create(owner, repo, issueOrBoom(card.id), commentsQ.asSpec(cm, commentRenderer))
+    )))
+  );
+}
+
+function migrateAllCardLinks(owner: string, repo: string, cards: Entity[]): Promiser {
+  return save(sequence(...cards.map((card) => migrateCardLinksToIssueNumbers(owner, repo, card))));
+}
+
+function migrateCardLinksToIssueNumbers(owner: string, repo: string, card: Entity): Promiser {
+  const body = linkMapper(cardRenderer(card));
   return () => progress.track("card-links", card.id, () => github.issues.update(owner, repo, progress.githubId("cards.number", card.id)!, { body }));
 }
 
-function migrateAllCardsToIssues(owner: string, repo: string, cards: any[]): Promiser {
-  return sequence(...cards.map((card) => migrateCardToIssue(owner, repo, card)));
+function migrateAllCardsToIssues(owner: string, repo: string, cards: Entity[]): Promiser {
+  return save(sequence(...cards.map((card) => migrateCardToIssue(owner, repo, card))));
 }
 
-function migrateCardToIssue(owner: string, repo: string, card: any): Promiser {
-  const payload = cardsQ.asIssueSpec(card.id, descRenderer, membersQ);
+function migrateCardToIssue(owner: string, repo: string, card: Entity): Promiser {
+  const payload = cardsQ.asIssueSpec(card.id, cardRenderer, membersQ);
   return () => progress.track("cards", card.id, () => github.issues.create(owner, repo, payload), ["number"]);
 }
 
-function migrateAllLabels(owner: string, repo: string, labels: any[]): Promiser {
-  return sequence(...labels.map((label) => migrateLabel(owner, repo, label)));
+function migrateAllLabels(owner: string, repo: string, labels: Entity[]): Promiser {
+  return save(sequence(...labels.map((label) => migrateLabel(owner, repo, label))));
 }
 
-function migrateLabel(owner: string, repo: string, label: any): Promiser {
+function migrateLabel(owner: string, repo: string, label: Entity): Promiser {
   return () => progress.track("labels", label.id, () => github.labels.create(owner, repo, {
     name: label.name,
     color: mapLabelColor(label.color),
@@ -109,28 +136,20 @@ function migrateLabel(owner: string, repo: string, label: any): Promiser {
   }));
 }
 
-function migrateAllLists(project: number, lists: any[]) {
-  return sequence(...lists.map((list) => migrateList(project, list)));
+function migrateAllLists(project: number, lists: Entity[]) {
+  return save(sequence(...lists.map((list) => migrateList(project, list))));
 }
 
-function migrateList(project: number, list: any) {
+function migrateList(project: number, list: Entity) {
   return () => progress.track("lists", list.id, () => github.columns.create(project, list.name));
 }
 
-// Taks an array of Promisers, returning a Promiser that will execute promises sequentially
-function sequence(...promisers: Promiser[]): Promiser {
-  return () => (async () => {
-    for (const p of promisers) { await p(); } // promises, promises...
-  })().finally(() => progress.flush());
-}
-
-// Returns a Promiser wrapping the execution of a promise with text and flushes
-function announce(name: string, promiser: Promiser): Promiser {
-  return (async () => {
-    console.log(`Migrating ${name}...`);
-    await promiser();
-    console.log(`${name} migrated.`);
-  });
+function issueOrBoom(trelloId: string): number {
+  const num = progress.githubId("cards.number", trelloId);
+  if (void 0 === num) {
+    throw new Error(`Cannot resolve GitHub issue number from Trello card ID ${trelloId}`);
+  }
+  return num;
 }
 
 // console.log(Object.keys(tree));
