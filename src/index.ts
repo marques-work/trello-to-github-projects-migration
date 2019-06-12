@@ -74,8 +74,7 @@ console.log("Statistics:\n", {
 // √       - prepend header indicating original comment author as github will author the
 //           comment from the user owning the API key
 // √       - remap @mentions (final step, in case checklists introduce mentions too)
-//   create cards for each issue
-//   move cards to column
+// √ create cards for each issue in the corresponding column
 //   mark cards as archived
 //   mark issues as closed (could this be part of PASS 2?)
 save(
@@ -85,11 +84,19 @@ save(
     announce("Cards->Issues", migrateAllCardsToIssues(config.owner, config.repo, tree.cards)),
     announce("Cards->Links", migrateAllCardLinks(config.owner, config.repo, tree.cards)),
     announce("Comments", migrateAllComments(config.owner, config.repo, tree.cards)),
+    announce("Cards->Project Cards", migrateAllCardsToGithubCard(tree.cards)),
   )
 )();
 
-function save(doTask: Promiser): Promiser {
-  return () => doTask().finally(progress.flush);
+function migrateAllCardsToGithubCard(cards: Entity[]): Promiser {
+  return sequence(...cards.map((card) => migrateCardToGithubCard(card)));
+}
+
+function migrateCardToGithubCard(card: Entity): Promiser {
+  return () => progress.track("project-cards", card.id, () => github.cards.create(
+      progress.githubIdOrDie("lists", card.idList),
+      {content_id: progress.githubIdOrDie("cards", card.id), content_type: "Issue"}
+    ));
 }
 
 function migrateAllComments(owner: string, repo: string, cards: Entity[]): Promiser {
@@ -101,7 +108,7 @@ function migrateCommentsOnCard(owner: string, repo: string, card: Entity): Promi
     ...(commentsQ.getCommentsFor(card).map((cm) => () => progress.track(
           "comments",
           cm.id,
-          () => github.comments.create(owner, repo, issueOrBoom(card.id), commentsQ.asSpec(cm, commentRenderer))
+          () => github.comments.create(owner, repo, progress.githubIdOrDie("cards.number", card.id), commentsQ.asSpec(cm, commentRenderer))
     )))
   );
 }
@@ -111,7 +118,7 @@ function migrateAllCardLinks(owner: string, repo: string, cards: Entity[]): Prom
 }
 
 function migrateCardLinksToIssueNumbers(owner: string, repo: string, card: Entity): Promiser {
-  return () => progress.track("card-links", card.id, () => github.issues.update(owner, repo, progress.githubId("cards.number", card.id)!, { body: linkMapper(cardRenderer(card)) }));
+  return () => progress.track("card-links", card.id, () => github.issues.update(owner, repo, progress.githubIdOrDie("cards.number", card.id), { body: linkMapper(cardRenderer(card)) }));
 }
 
 function migrateAllCardsToIssues(owner: string, repo: string, cards: Entity[]): Promiser {
@@ -143,12 +150,8 @@ function migrateList(project: number, list: Entity) {
   return () => progress.track("lists", list.id, () => github.columns.create(project, list.name));
 }
 
-function issueOrBoom(trelloId: string): number {
-  const num = progress.githubId("cards.number", trelloId);
-  if (void 0 === num) {
-    throw new Error(`Cannot resolve GitHub issue number from Trello card ID ${trelloId}`);
-  }
-  return num;
+function save(doTask: Promiser): Promiser {
+  return () => doTask().finally(progress.flush);
 }
 
 // console.log(Object.keys(tree));

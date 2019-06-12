@@ -51,6 +51,7 @@ export default class Progress {
   markDone: (path: string, id: string, ghId: number) => void;
   isDone: (path: string, id: string) => boolean;
   githubId: (path: string, id: string) => number | undefined;
+  githubIdOrDie: (path: string, id: string) => number;
 
   constructor(outfile: string, paranoid: boolean = false) {
     let contents: Mapping = {}; // form a closure to make this truly private
@@ -84,6 +85,12 @@ export default class Progress {
       return isDone(path, id) ? contents[path][id] : undefined;
     }
 
+    function githubIdOrDie(path: string, id: string): number {
+      const value = githubId(path, id);
+      if (void 0 === value) { throw `Could not resolve ${path}: ${id} from progress map`; }
+      return value;
+    }
+
     function flush() {
       console.log("flushing");
       writeDataToFile(outfile, contents);
@@ -93,6 +100,7 @@ export default class Progress {
     this.markDone = markDone;
     this.isDone = isDone;
     this.githubId = githubId;
+    this.githubIdOrDie = githubIdOrDie;
   }
 
   track(path: string, id: string, create: () => Promise<ApiResponse>, otherKeys: string[] = []) {

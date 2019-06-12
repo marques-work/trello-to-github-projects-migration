@@ -39,6 +39,39 @@ export interface CommentSpec {
   body: string;
 }
 
+export interface CardSpec {
+  content_id: number;
+  content_type: "Issue";
+}
+
+export interface CardUpdateSpec {
+  archived: boolean
+}
+
+class Cards extends Model {
+  api = new Api(inertia);
+
+  create(columnId: number, payload: CardSpec) {
+    return this.api.post(`/projects/columns/${columnId}/cards`, payload);
+  }
+
+  update(ghId: number, payload: CardUpdateSpec) {
+    return this.api.patch(`/projects/columns/cards/${ghId}`, payload);
+  }
+
+  delete(ghId: number) {
+    return this.api.delete(`/projects/columns/cards/${ghId}`);
+  }
+
+  destroyAll(ids: number[]) { // too complex to query github for this (must iterate over each column), so use with Progress
+    this.guard(`Are you sure you want to delete these ${ids.length} project cards?`, "yep, do it!", () => {
+      (async () => {
+        for (const id of ids) { await this.delete(id); }
+      })();
+    });
+  }
+}
+
 class Issues extends Model {
   api = new Api(symmetra);
 
@@ -141,7 +174,7 @@ class Labels extends Model {
 
 export default {
   columns: new Columns(),
-  cards: inertia,
+  cards: new Cards(),
   issues: new Issues(),
   comments: new Comments(),
   labels: new Labels()
