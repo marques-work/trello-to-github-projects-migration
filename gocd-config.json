@@ -2,5 +2,7 @@
   "projId": 2748526,
   "progress": "progress.json",
   "owner": "gocd",
-  "repo": "gocd"
+  "repo": "gocd",
+  "sha": "c65082a0b39ec9e0e5fa5565b0e7a2421487e15d",
+  "archiveListName": "Done"
 }
