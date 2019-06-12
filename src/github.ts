@@ -56,13 +56,21 @@ class Issues extends Model {
 
   closeAll(owner: string, repo: string) {
     this.guard(`Are you sure you want to close all issues on ${owner}/${repo}?`, "I certainly am", () => {
-      this.list(owner, repo, {state: "open"}).then(({body}) => {
-        (async () => {
-          for (const issue of body) {
-            await this.update(owner, repo, issue.number, {state: "closed"});
-          }
-        })();
-      }).catch((e) => { throw e; });
+      let page = 0, issues: any[] = [];
+      (async () => {
+        do {
+          await ((page: number) => {
+            return this.list(owner, repo, {state: "open", page: String(page)}).then(({body}) => {
+              (async () => {
+                issues = body;
+                for (const issue of issues) {
+                  await this.update(owner, repo, issue.number, {state: "closed"});
+                }
+              })();
+            }).catch((e) => { throw e; });
+          })(++page);
+        } while (issues.length);
+      })();
     });
   }
 }
