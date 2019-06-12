@@ -45,7 +45,7 @@ export interface CardSpec {
 }
 
 export interface CardUpdateSpec {
-  archived: boolean
+  archived: boolean;
 }
 
 class Cards extends Model {
@@ -60,6 +60,7 @@ class Cards extends Model {
   }
 
   delete(ghId: number) {
+    console.warn("Deleting project card with id:", ghId);
     return this.api.delete(`/projects/columns/cards/${ghId}`);
   }
 
@@ -128,6 +129,7 @@ class Columns extends Model {
   }
 
   delete(ghId: number) {
+    console.warn("Deleting project column with id:", ghId);
     return this.api.delete(`/projects/columns/${ghId}`);
   }
 
@@ -156,6 +158,7 @@ class Labels extends Model {
   }
 
   delete(owner: string, repo: string, name: string) {
+    console.warn("Deleting label named:", JSON.stringify(name));
     return this.api.delete(`/repos/${owner}/${repo}/labels/${name}`);
   }
 
