@@ -111,8 +111,7 @@ function migrateAllCardLinks(owner: string, repo: string, cards: Entity[]): Prom
 }
 
 function migrateCardLinksToIssueNumbers(owner: string, repo: string, card: Entity): Promiser {
-  const body = linkMapper(cardRenderer(card));
-  return () => progress.track("card-links", card.id, () => github.issues.update(owner, repo, progress.githubId("cards.number", card.id)!, { body }));
+  return () => progress.track("card-links", card.id, () => github.issues.update(owner, repo, progress.githubId("cards.number", card.id)!, { body: linkMapper(cardRenderer(card)) }));
 }
 
 function migrateAllCardsToIssues(owner: string, repo: string, cards: Entity[]): Promiser {
