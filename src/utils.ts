@@ -1,4 +1,6 @@
+import {createHash} from "crypto";
 import fs from "fs";
+import {Dated} from "./types";
 
 export function die(...args: any[]) {
   console.error(...args);
@@ -81,6 +83,28 @@ export function env(name: string): string {
     throw new Error(`You must set the environment variable $${name}!`);
   }
   return process.env[name]!;
+}
+
+export function compact(arr: any[]): any[] {
+  return arr.reduce((m, el) => {
+    if (el) { m.push(el); }
+    return m;
+  }, []);
+}
+
+export function mustBeString(maybe: string | undefined, message: string): string {
+  if (void 0 === maybe) {
+    throw message;
+  }
+  return maybe;
+}
+
+export function sortByDate<T extends Dated>(arr: T[]): T[] {
+  return arr.slice().sort((a: T, b: T) => (new Date(a.date)).getTime() - (new Date(b.date)).getTime());
+}
+
+export function sha256(subj: string): string {
+  return createHash("sha256").update(subj).digest("hex");
 }
 
 interface Config extends ConfigGH {

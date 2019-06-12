@@ -5,7 +5,7 @@ import Progress from "./progress";
 import {announce, Promiser, sequence} from "./promises";
 import {CardQuery, ChecklistQuery, CommentsQuery, Link, MemberQuery, UploadsQuery} from "./queries";
 import sanity from "./sanity";
-import {Entity, sorted} from "./types";
+import {Entity, sortByPos} from "./types";
 import {filenameFromArgs, loadConfig, loadDataFromFile} from "./utils";
 
 const opts = minimist(process.argv.slice(2), { alias: { c: "config" } });
@@ -17,7 +17,7 @@ sanity(tree);
 
 const progress = new Progress(config.progress, false);
 
-const lists       = sorted(tree.lists);
+const lists       = sortByPos(tree.lists);
 const cardsQ      = new CardQuery(tree.cards);
 const checklistsQ = new ChecklistQuery(tree.checklists);
 const commentsQ   = new CommentsQuery(loadDataFromFile("comments.json"));
@@ -68,6 +68,7 @@ console.log("Statistics:\n", {
 //
 // √   PASS 2:
 // √     - remap trello card links to github issues (covers, body, checklists, attachments)
+// √     - mark issues as closed (done in same step as above)
 // √     - apply comments (with @mentions)
 // √       - convert trello number tags (e.g., #123) to trello URLs (later will be remapped to github issues)
 // √       - remap trello links to issues in comment content
@@ -75,21 +76,32 @@ console.log("Statistics:\n", {
 //           comment from the user owning the API key
 // √       - remap @mentions (final step, in case checklists introduce mentions too)
 // √ create cards for each issue in the corresponding column
-//   mark cards as archived
-//   mark issues as closed (could this be part of PASS 2?)
+// √ mark cards as archived
+const allCards = tree.cards;
+
 save(
   sequence(
     announce("Lists", migrateAllLists(config.projId, lists)),
     announce("Labels", migrateAllLabels(config.owner, config.repo, tree.labels)),
-    announce("Cards->Issues", migrateAllCardsToIssues(config.owner, config.repo, tree.cards)),
-    announce("Cards->Links", migrateAllCardLinks(config.owner, config.repo, tree.cards)),
-    announce("Comments", migrateAllComments(config.owner, config.repo, tree.cards)),
-    announce("Cards->Project Cards", migrateAllCardsToGithubCard(tree.cards)),
+    announce("Cards->Issues", migrateAllCardsToIssues(config.owner, config.repo, allCards)),
+    announce("Cards->Links", migrateAllCardLinks(config.owner, config.repo, allCards)),
+    announce("Comments", migrateAllComments(config.owner, config.repo, allCards)),
+    announce("Cards->Project Cards", migrateAllCardsToGithubCard(allCards)),
+    announce("Archived State on Project Cards", maybeArchiveAllGithubCards(allCards)),
   )
 )();
 
+function maybeArchiveAllGithubCards(cards: Entity[]) {
+  return save(sequence(...cards.map((card) => maybeArchiveGithubCard(card))));
+}
+function maybeArchiveGithubCard(card: Entity): Promiser {
+  return () => progress.track("cards.state", card.id, () => github.cards.update(
+    progress.githubIdOrDie("project-cards", card.id), { archived: card.closed })
+  );
+}
+
 function migrateAllCardsToGithubCard(cards: Entity[]): Promiser {
-  return sequence(...cards.map((card) => migrateCardToGithubCard(card)));
+  return save(sequence(...cards.map((card) => migrateCardToGithubCard(card))));
 }
 
 function migrateCardToGithubCard(card: Entity): Promiser {
@@ -118,7 +130,7 @@ function migrateAllCardLinks(owner: string, repo: string, cards: Entity[]): Prom
 }
 
 function migrateCardLinksToIssueNumbers(owner: string, repo: string, card: Entity): Promiser {
-  return () => progress.track("card-links", card.id, () => github.issues.update(owner, repo, progress.githubIdOrDie("cards.number", card.id), { body: linkMapper(cardRenderer(card)) }));
+  return () => progress.track("card-links", card.id, () => github.issues.update(owner, repo, progress.githubIdOrDie("cards.number", card.id), { body: linkMapper(cardRenderer(card)), state: card.closed ? "closed" : "open" }));
 }
 
 function migrateAllCardsToIssues(owner: string, repo: string, cards: Entity[]): Promiser {

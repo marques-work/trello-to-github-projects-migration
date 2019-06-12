@@ -3,9 +3,10 @@ interface Generic { [key: string]: any; }
 // Trello Types
 export interface Entity extends Generic { id: string; }
 export interface Orderable extends Entity { pos: number; }
+export interface Dated extends Entity { date: string; }
 export interface Typed extends Entity { type: string; }
 
-export function sorted(arr: Orderable[]) {
+export function sortByPos(arr: Orderable[]) {
   return arr.slice().sort((a: Orderable, b: Orderable) => a.pos - b.pos);
 }
 

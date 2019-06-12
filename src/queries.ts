@@ -1,31 +1,22 @@
-import {createHash} from "crypto";
 import {basename, extname} from "path";
 import {CommentSpec, IssueSpec} from "./github";
 import {githubMemberByTrelloName} from "./preloaded_data";
 import Progress from "./progress";
-import {Entity, sorted} from "./types";
-import {ConfigGH} from "./utils";
+import {Dated, Entity, sortByPos} from "./types";
+import {compact, ConfigGH, mustBeString, sha256, sortByDate} from "./utils";
 
 export type StringMapper = (input: string) => string;
 export type EntityRenderer = (entity: Entity) => string;
 
-function compact(arr: any[]): any[] {
-  return arr.reduce((m, el) => {
-    if (el) { m.push(el); }
-    return m;
-  }, []);
-}
-
-function mustBeString(maybe: string | undefined, message: string): string {
-  if (void 0 === maybe) {
-    throw message;
-  }
-  return maybe;
-}
-
 // Negative lookbehind only supported by newer V8 - meaning MODERN chrome and node
 // This find number tags that are NOT part of a URL
 const CARD_TAG_RE = /(?<!http[s]?:\/\/[\w\/?&%.#+=\-]+)#(\d+)\b/gim;
+
+// matches any number of trello card links in a block of text
+const TRELLO_LINK_RE = /\b(https:\/\/trello\.com\/c\/([a-z0-9]{8})(?:\/[\w/?&%.\-=]*)?)/igm;
+
+// matches any number of @mentions in a block of text
+const AT_MENTION_RE = /(^|\W)@([\w_-]+)/gim;
 
 export class CardQuery {
   byId = new Map<string, Entity>();
@@ -92,8 +83,6 @@ export class CardQuery {
   }
 }
 
-const TRELLO_LINK_RE = /\b(https:\/\/trello\.com\/c\/([a-z0-9]{8})(?:\/[\w/?&%.\-=]*)?)/igm;
-
 export class Link {
   static isGithubObject(url: string): boolean {
     return !!url.match(/\bhttps:\/\/github\.com\/[\w]+\/[\w]+\/(?:pull|issues)\/[\d]+/i);
@@ -128,7 +117,7 @@ class AttachmentsTransform {
 
     const related = [], uploads = [];
 
-    for (const a of sorted(attachments)) {
+    for (const a of sortByPos(attachments)) {
       if (a.isUpload) {
         uploads.push(`* ${AttachmentsTransform.isImg(a.name) ? "!" : ""}[${a.name}](${urlMapper(a.url)})`);
       } else {
@@ -164,30 +153,26 @@ class AttachmentsTransform {
   }
 }
 
-function sortByDate<T>(arr: T[]): T[] {
-  return arr.slice().sort((a: any, b: any) => (new Date(a.date)).getTime() - (new Date(b.date)).getTime());
-}
-
 export class CommentsQuery {
-  byCard = new Map<string, Entity[]>();
+  byCard = new Map<string, Dated[]>();
 
   readonly length: number;
 
-  constructor(comments: Entity[]) {
+  constructor(comments: Dated[]) {
     this.length = comments.length;
 
     for (const c of comments) {
-      this.byCard.set(c.data.card.id, sortByDate<Entity>((this.byCard.get(c.data.card.id) || []).concat(c)));
+      this.byCard.set(c.data.card.id, sortByDate<Dated>((this.byCard.get(c.data.card.id) || []).concat(c)));
     }
   }
 
-  getCommentsFor(card: Entity): Entity[] {
+  getCommentsFor(card: Entity): Dated[] {
     return this.byCard.get(card.id) || [];
   }
 
   renderer(linkMapper: StringMapper, cards: CardQuery, members: MemberQuery): EntityRenderer {
     return (comment: Entity) => compact([
-      this.authorHeader(comment, members).trim(),
+      this.authorHeader(comment as Dated, members).trim(),
       linkMapper(
         cards.expandTrelloCardNumbersToUrl(
           members.replaceMentions(comment.data.text)
@@ -196,10 +181,10 @@ export class CommentsQuery {
     ]).join("\n\n");
   }
 
-  authorHeader(comment: Entity, members: MemberQuery): string {
+  authorHeader(comment: Dated, members: MemberQuery): string {
     return [
       `> Migrated comment original author: @${mustBeString(members.githubLoginFor(comment.idMemberCreator), `Failed to resolve member ${comment.idMember}`)}`,
-      `> Original date: ${new Date(comment.date).toUTCString()} [(what's this in my time zone?)](https://dencode.com/en/date/ctime?v=${encodeURIComponent(comment.date)})`
+      `> Original date: ${new Date(comment.date).toUTCString()} [(show me in my time zone)](https://dencode.com/en/date/ctime?v=${encodeURIComponent(comment.date)})`
     ].join("\n");
   }
 
@@ -229,15 +214,11 @@ export class ChecklistQuery {
   asMarkdown(id: string) {
     if (this.byId.has(id)) {
       const c: any = this.byId.get(id);
-      return `### ${c.name}\n\n${sorted(c.checkItems).map(
+      return `### ${c.name}\n\n${sortByPos(c.checkItems).map(
         (i: any) => `- [${"complete" === i.state ? "x" : " "}] ${i.name}`
       ).join("\n")}`;
     }
   }
-}
-
-function sha256(subj: string): string {
-  return createHash("sha256").update(subj).digest("hex");
 }
 
 interface Upload {
@@ -272,8 +253,6 @@ export class UploadsQuery {
     return ["https://raw.githubusercontent.com", owner, repo, commit, this.byUrl.get(url)!.key].join("/");
   }
 }
-
-const AT_MENTION_RE = /(^|\W)@([\w_-]+)/gim;
 
 export class MemberQuery {
   byId   = new Map<string, any>();
