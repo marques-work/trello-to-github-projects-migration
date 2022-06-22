@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@types/minimist": "^1.2.0",
-    "got": "^9.6.0",
+    "got": "^11.8.5",
     "minimist": "^1.2.0"
   }
 }
